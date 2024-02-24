@@ -11,6 +11,7 @@ import BikeIcon from "./src/common/icons/BikeIcon/BikeIcon"
 import {useState} from "react";
 import CustomRowRadioButton from "./src/common/customs/CustomRowRadioButton/CustomRowRadioButton";
 import CustomItemCard from "./src/common/customs/CustomItemCard/CustomItemCard";
+import CustomItemRowCard from "./src/common/customs/CustomItemRowCard/CustomItemRowCard";
 
 export default function App() {
 
@@ -55,6 +56,8 @@ export default function App() {
             {/*/>*/}
 
             {/*<CustomItemCard imageSource={"https://media.licdn.com/dms/image/D4E03AQGd5EIHXzm16A/profile-displayphoto-shrink_400_400/0/1707342851731?e=1714003200&v=beta&t=MoQZZJ6VGFm49LIxZtNbZOTE9ix9H8vSiSXBy5fl4vs"} productName={"Elvin"} quantity={31}/>*/}
+
+            <CustomItemRowCard productName="Elvin Trans" price={31.69} currency={"$"} sellingType={"kg"} imageSource={"https://media.licdn.com/dms/image/D4E03AQGd5EIHXzm16A/profile-displayphoto-shrink_400_400/0/1707342851731?e=1714003200&v=beta&t=MoQZZJ6VGFm49LIxZtNbZOTE9ix9H8vSiSXBy5fl4vs"}/>
 
         </View>
     );
