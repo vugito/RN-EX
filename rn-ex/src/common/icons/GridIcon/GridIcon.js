@@ -3,7 +3,7 @@ import Svg, {Path} from "react-native-svg";
 import {View, StyleSheet} from "react-native";
 
 const GridIcon = (props) => {
-    const {width, height, color} = props;
+    const {width, height, color,boxInsideColor} = props;
 
     return (
 
@@ -12,7 +12,7 @@ const GridIcon = (props) => {
                 xmlns="http://www.w3.org/2000/svg"
                 width={width ? width : 20}
                 height={height ? height : 20}
-                fill="none"
+                fill={boxInsideColor}
                 {...props}
             >
                 <Path
@@ -29,7 +29,7 @@ const GridIcon = (props) => {
 
 const styles = StyleSheet.create({
     iconContainer: {
-        // backgroundColor: '#a7cde1',
+        // backgroundColor: 'red',
         // width: 40,
         // height: 40,
         // alignItems:"center",

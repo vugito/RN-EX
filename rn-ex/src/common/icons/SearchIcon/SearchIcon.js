@@ -10,8 +10,8 @@ const SearchIcon = (props) => {
         <View style={styles.iconContainer}>
             <Svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={width ? width : 18}
-                height={height ? height : 18}
+                width={width ? width : 20}
+                height={height ? height : 20}
                 fill="none"
                 {...props}
             >
@@ -20,7 +20,7 @@ const SearchIcon = (props) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={1.5}
-                    d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16Z"
+                    d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16ZM19 19l-4.35-4.35"
                 />
             </Svg>
         </View>

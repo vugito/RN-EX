@@ -2,6 +2,12 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View} from 'react-native';
 import CustomButton from "./src/common/customs/CustomButton/CustomButton";
 import HeartIcon from "./src/common/icons/HeartIcon/HeartIcon";
+import CustomSearchBar from "./src/common/customs/CustomSearchBar/CustomSearchBar";
+import CustomTextInput from "./src/common/customs/CustomTextInput/CustomTextInput";
+import CustomChip from "./src/common/customs/CustomChip/CustomChip"
+import CheckIcon from "./src/common/icons/CheckIcon/CheckIcon";
+import GridIcon from "./src/common/icons/GridIcon/GridIcon"
+import {useState} from "react";
 
 export default function App() {
 
@@ -10,13 +16,20 @@ export default function App() {
         backgroundColor: 'red'
     }
 
+    const [selected,setSelected]=useState();
+
 
     return (
         <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <StatusBar style="auto"/>
-            <CustomButton textShown={true} text="Accept" iconShown={false} textStyles={textStyles}
-                          icon={<HeartIcon/>}/>
+            {/*<CustomSearchBar/>*/}
+            {/*<CustomButton textShown={true} text="Accept" iconShown={false} textStyles={textStyles}*/}
+            {/*              icon={<HeartIcon/>}/>*/}
+
+            <CustomTextInput label={"Label"} placeholder={"Text"}/>
+
+            <CustomChip value={"Petux Elvin"} selected={selected} setSelected={setSelected} quantity={14}/>
+            <GridIcon boxInsideColor={"rgba(114,3,255,0.5)"} color={"#7203FF"}/>
+
         </View>
     );
 }
@@ -24,7 +37,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#F6F5F5',
         alignItems: 'center',
         justifyContent: 'center',
     },

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         borderRadius: 8
     },
     text: {
-        fontFamily: 'SFProText-Regular'
+        // fontFamily: 'SFProText-Regular'
     }
 });
 
