@@ -4,10 +4,10 @@ import styles from "./styles";
 import CheckIcon from "../../icons/CheckIcon/CheckIcon";
 
 
-const CustomRowRadioButton = ({ value, selected,setSelected,iconComponent,buttonStyle }) => {
-    const handleSelect=()=>{
-        setSelected(!selected);
-    }
+const CustomRowRadioButton = ({ value, selected,onSelect,iconComponent,buttonStyle }) => {
+    const handleSelect = () => {
+        onSelect(value);
+    };
 
     const IconComponent = iconComponent;
 

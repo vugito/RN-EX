@@ -20,7 +20,12 @@ export default function App() {
     }
 
     const [selected,setSelected]=useState();
+    const [selected2,setSelected2]=useState();
 
+
+    const handleRadioSelect = (value) => {
+        setSelected(value);
+    };
 
     return (
         <View style={styles.container}>
@@ -35,7 +40,19 @@ export default function App() {
 
 
 
-            {/*<CustomRowRadioButton selected={selected} setSelected={setSelected} value={"I'll pick it up myself"} iconComponent={BikeIcon}/>*/}
+            {/*<CustomRowRadioButton*/}
+            {/*    value={"Option 1"}*/}
+            {/*    selected={selected === "Option 1"}*/}
+            {/*    onSelect={handleRadioSelect}*/}
+            {/*    iconComponent={BikeIcon}*/}
+            {/*/>*/}
+
+            {/*<CustomRowRadioButton*/}
+            {/*    value={"Option 2"}*/}
+            {/*    selected={selected === "Option 2"}*/}
+            {/*    onSelect={handleRadioSelect}*/}
+            {/*    iconComponent={BikeIcon}*/}
+            {/*/>*/}
 
             {/*<CustomItemCard imageSource={"https://media.licdn.com/dms/image/D4E03AQGd5EIHXzm16A/profile-displayphoto-shrink_400_400/0/1707342851731?e=1714003200&v=beta&t=MoQZZJ6VGFm49LIxZtNbZOTE9ix9H8vSiSXBy5fl4vs"} productName={"Elvin"} quantity={31}/>*/}
 
