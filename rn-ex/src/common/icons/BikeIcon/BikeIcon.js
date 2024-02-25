@@ -3,11 +3,11 @@ import Svg, {Path} from "react-native-svg";
 import {View, StyleSheet} from "react-native";
 
 const BikeIcon = (props) => {
-    const {width, height, color} = props;
+    const { width, height, color, containerStyle } = props;
 
     return (
 
-        <View style={styles.iconContainer}>
+        <View style={[styles.iconContainer, containerStyle]}>
             <Svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={width ? width : 22}

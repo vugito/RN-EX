@@ -4,10 +4,13 @@ import styles from "./styles"
 import SearchIcon from "../../icons/SearchIcon/SearchIcon";
 
 const CustomSearchBar = ({ value, onChangeText, onSubmit }) => {
+
+
+
     return (
         <View style={styles.container}>
             <View style={styles.iconContainer}>
-                <SearchIcon/>
+                <SearchIcon color="#000000"/>
             </View>
             <TextInput
                 style={styles.input}

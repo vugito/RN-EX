@@ -27,14 +27,14 @@ const styles = StyleSheet.create({
         lineHeight:25,
         fontSize:17,
         color:"rgba(0,0,0,.6)",
-        alignSelf:"start"
+        alignSelf:"flex-start"
     },
     selectedRadioButtonText:{
         fontWeight:'600',
         color:"#7203FF"
     },
     selectedRadioButton: {
-        backgroundColor: '#D6B6FF',
+        // backgroundColor: '#D6B6FF',
     },
 });
 

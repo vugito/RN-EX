@@ -2,13 +2,20 @@ import React from 'react';
 import styles from './styles';
 import {Pressable, Text} from "react-native";
 
-const CustomButton = ({iconShown, icon, textShown, text, textStyles, buttonStyles,iconColor}) => {
+const CustomButton = (props) => {
 
-    const IconComponent = icon;
+    const {
+        iconShown,
+        icon,
+        textShown,
+        text,
+        textStyles,
+        buttonStyles,
+    } = props;
 
     return (
         <Pressable style={[styles.container, buttonStyles]}>
-            {iconShown &&  <IconComponent color={iconColor}/>}
+            {iconShown && icon}
             {textShown &&
                 <Text style={[styles.text, textStyles]}>{text}</Text>}
         </Pressable>

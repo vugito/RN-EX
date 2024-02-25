@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
         borderRadius: 8
     },
     text: {
+        fontSize: 15,
+        lineHeight: 18,
+        fontWeight: "600"
         // fontFamily: 'SFProText-Regular'
     }
 });

@@ -5,20 +5,17 @@ const screenWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#FFF',
+        flexDirection:"row",
+        maxWidth: screenWidth - 40,
+        paddingVertical: 10,
+        paddingHorizontal:20,
+        gap: 10,
         borderRadius: 27,
+        backgroundColor: '#fff',
         alignItems:'center',
         justifyContent:"center",
-        flexDirection:"row",
-        maxHeight:48,
-        maxWidth: screenWidth - 40,
-        flex:1,
-        paddingHorizontal:15
-
     },
-    iconContainer: {
-        marginRight: 10,
-    },
+    iconContainer: {},
     input: {
         flex: 1,
         fontSize: 19,

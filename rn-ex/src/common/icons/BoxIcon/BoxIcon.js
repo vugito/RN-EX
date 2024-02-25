@@ -1,22 +1,36 @@
-import * as React from "react"
-import Svg, { Path } from "react-native-svg"
+import * as React from "react";
+import Svg, {Path} from "react-native-svg";
+import {View, StyleSheet} from "react-native";
 
-function BoxIcon(props) {
+const BoxIcon = (props) => {
+    const { width, height, color, containerStyle } = props;
+
     return (
-        <Svg
-            width={40}
-            height={40}
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            {...props}
-        >
-            <Path
-                d="M23.22 20.315l-1.793 1.038V40l16.142-9.32V12.034L23.22 20.315zM26.141 3.593L19.934 0 3.344 9.577 9.56 13.17l16.581-9.577zM36.515 9.577L29.36 5.502l-16.58 9.577.945.49 6.208 3.585 6.174-3.56 10.407-6.017zM11.527 21.934l-2.97-1.527V15.66l-6.125-3.527v18.514L18.456 39.9V21.386l-6.929-3.992v4.54z"
-                fill="#2D0C57"
-            />
-        </Svg>
+
+        <View style={[styles.iconContainer, containerStyle]}>
+            <Svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={width || 36}
+                height={height || 40}
+                fill="none"
+                {...props}
+            >
+                <Path
+                    fill={color || "#2D0C57"}
+                    d="m21.22 20.315-1.793 1.038V40l16.142-9.32V12.034L21.22 20.315ZM24.141 3.593 17.934 0 1.344 9.577 7.56 13.17l16.581-9.577ZM34.515 9.577 27.36 5.502l-16.58 9.577.945.49 6.208 3.585 6.174-3.56 10.407-6.017ZM9.527 21.934l-2.97-1.527V15.66L.431 12.133v18.514L16.456 39.9V21.386l-6.929-3.992v4.54Z"
+                />
+            </Svg>
+        </View>
+
     )
-}
+};
+
+const styles = StyleSheet.create({
+    iconContainer: {
+
+    },
+
+})
+
 
 export default BoxIcon;

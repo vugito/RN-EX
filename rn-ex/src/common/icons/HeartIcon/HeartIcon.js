@@ -3,7 +3,7 @@ import Svg, {Path} from "react-native-svg";
 import {View, StyleSheet} from "react-native";
 
 const HeartIcon = (props) => {
-    const {width, height, color} = props;
+    const {width, height, color,boxInsideColor} = props;
 
     return (
 
@@ -12,7 +12,7 @@ const HeartIcon = (props) => {
                 xmlns="http://www.w3.org/2000/svg"
                 width={width ? width : 24}
                 height={height ? height : 20}
-                fill="none"
+                fill={boxInsideColor ? boxInsideColor : 'none'}
                 {...props}
             >
                 <Path

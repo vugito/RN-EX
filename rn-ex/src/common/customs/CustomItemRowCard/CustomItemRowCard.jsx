@@ -17,7 +17,7 @@ const CustomItemRowCard = ({ imageSource, productName, price,currency,sellingTyp
             <View style={styles.rightContainer}>
 
                 <View style={styles.productNameContainer}>
-                    <View style={styles.productName}>{productName}</View>
+                    <Text style={styles.productName}>{productName}</Text>
                 </View>
 
                 <View style={styles.priceContainer}>

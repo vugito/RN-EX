@@ -13,6 +13,9 @@ import CustomRowRadioButton from "./src/common/customs/CustomRowRadioButton/Cust
 import CustomItemCard from "./src/common/customs/CustomItemCard/CustomItemCard";
 import CustomItemRowCard from "./src/common/customs/CustomItemRowCard/CustomItemRowCard";
 import SplashScreen from "./src/screens/SplashScreen/SplashScreen";
+import DroneIcon from "./src/common/icons/DroneIcon/DroneIcon";
+import CustomRowItemCard from "./src/common/customs/CustomRowItemCard/CustomRowItemCard";
+import SplashScreen from "./src/screens/SplashScreen/SplashScreen";
 
 export default function App() {
 
@@ -37,9 +40,8 @@ export default function App() {
 
             {/*<CustomTextInput label={"Label"} placeholder={"Text"}/>*/}
 
-            {/*<CustomChip value={"Petux Elvin"} selected={selected} setSelected={setSelected} quantity={14}/>*/}
+            {/*<CustomChip value={"Chip chip"} selected={selected} setSelected={setSelected} quantity={14}/>*/}
             {/*<GridIcon boxInsideColor={"rgba(114,3,255,0.5)"} color={"#7203FF"}/>*/}
-
 
 
             {/*<CustomRowRadioButton*/}
@@ -53,14 +55,31 @@ export default function App() {
             {/*    value={"Option 2"}*/}
             {/*    selected={selected === "Option 2"}*/}
             {/*    onSelect={handleRadioSelect}*/}
-            {/*    iconComponent={BikeIcon}*/}
+            {/*    iconComponent={DroneIcon}*/}
             {/*/>*/}
 
-            {/*<CustomItemCard imageSource={"https://media.licdn.com/dms/image/D4E03AQGd5EIHXzm16A/profile-displayphoto-shrink_400_400/0/1707342851731?e=1714003200&v=beta&t=MoQZZJ6VGFm49LIxZtNbZOTE9ix9H8vSiSXBy5fl4vs"} productName={"Elvin"} quantity={31}/>*/}
+            {/*<CustomItemCard imageSource={"https://media.licdn.com/dms/image/D4E03AQGd5EIHXzm16A/profile-displayphoto-shrink_400_400/0/1707342851731?e=1714003200&v=beta&t=MoQZZJ6VGFm49LIxZtNbZOTE9ix9H8vSiSXBy5fl4vs"} productName={"Elvin Süleymanov"} quantity={31}/>*/}
 
-            {/*<CustomItemRowCard productName="Elvin Trans" price={31.69} currency={"$"} sellingType={"kg"} imageSource={"https://media.licdn.com/dms/image/D4E03AQGd5EIHXzm16A/profile-displayphoto-shrink_400_400/0/1707342851731?e=1714003200&v=beta&t=MoQZZJ6VGFm49LIxZtNbZOTE9ix9H8vSiSXBy5fl4vs"}/>*/}
+            {/*<CustomRowItemCard*/}
+            {/*    productName="Apple"*/}
+            {/*    productImg="https://t4.ftcdn.net/jpg/00/59/96/75/360_F_59967553_9g2bvhTZf18zCmEVWcKigEoevGzFqXzq.jpg"*/}
+            {/*    productPrice="3.50"*/}
+            {/*    currency="$"*/}
+            {/*    sellingType="kg"/>*/}
 
-            <SplashScreen/>
+
+
+            {/*<CustomItemRowCard*/}
+            {/*    productName="Elvin Süleymanov"*/}
+            {/*    price={31.69}*/}
+            {/*    currency={"$"}*/}
+            {/*    sellingType={"kg"}*/}
+            {/*    imageSource={"https://media.licdn.com/dms/image/D4E03AQGd5EIHXzm16A/profile-displayphoto-shrink_400_400/0/1707342851731?e=1714003200&v=beta&t=MoQZZJ6VGFm49LIxZtNbZOTE9ix9H8vSiSXBy5fl4vs"}/>*/}
+
+            {/*<SplashScreen/>*/}
+            {/*<SplashScreen2/>*/}
+
+
         </View>
     );
 }
@@ -68,7 +87,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F6F5F5',
+        backgroundColor: '#1e111e',
         alignItems: 'center',
         justifyContent: 'center',
     },

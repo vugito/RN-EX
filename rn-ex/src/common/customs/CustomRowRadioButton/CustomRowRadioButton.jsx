@@ -9,18 +9,19 @@ const CustomRowRadioButton = ({ value, selected,onSelect,iconComponent,buttonSty
         onSelect(value);
     };
 
-    const IconComponent = iconComponent;
+    const Icon = iconComponent;
 
     return (
 
         <TouchableOpacity style={styles.clickableRadioButton} onPress={handleSelect}>
-            <View style={[styles.radioButtonContainer,buttonStyle, selected && styles.selectedradioButton]}>
+            <View style={[styles.radioButtonContainer,buttonStyle, selected && styles.selectedRadioButton]}>
 
 
                 <View style={styles.permanentIconContainer}>
-                    {IconComponent && selected ? (
-                        <IconComponent color="#6C0EE4"/>
-                    ) : <IconComponent />}
+                    {Icon && selected ? (
+                        <Icon color="#6C0EE4"/>
+
+                    ) : <Icon />}
                 </View>
 
 

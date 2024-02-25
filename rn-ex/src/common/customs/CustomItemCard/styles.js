@@ -2,21 +2,18 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     cardContainer: {
-        backgroundColor: '#fff',
+        flexDirection: "column",
+        minWidth: 160,
+        maxWidth: 180,
+        maxHeight: 220,
         borderRadius: 8,
-        flex:1,
-        flexDirection:"column",
-        maxHeight:220,
-        maxWidth:180,
-        minWidth:160
+        backgroundColor: '#fff',
     },
     imageContainer: {
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
-        flex:5
+        maxHeight: 140,
     },
     image:{
-        width:'100%',
+        width: '100%',
         height: '100%',
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
@@ -24,24 +21,22 @@ const styles = StyleSheet.create({
     productName: {
         fontSize: 18,
         fontWeight: '700',
-        lineHeight:21,
-        flex:1,
-        color:"#2D0C57",
+        lineHeight: 21,
+        color: "#2D0C57",
     },
     quantityContainer: {
-        flex:1,
-        paddingHorizontal:12,
+        paddingHorizontal: 12,
+        paddingVertical: 12,
     },
     productNameContainer:{
-        flex:1,
         paddingHorizontal:12,
-        marginTop: 10,
+        paddingTop: 6,
     },
     quantityText: {
-        color: '#9586A8',
         fontSize: 12,
-        fontWeight:'400',
-        lineHeight:14
+        fontWeight: '400',
+        lineHeight: 14,
+        color: '#9586A8',
     },
 });
 

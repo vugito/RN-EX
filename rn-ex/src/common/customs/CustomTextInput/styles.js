@@ -1,26 +1,30 @@
-import { StyleSheet } from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        width: '90%',
-        marginHorizontal:15
+        // marginHorizontal:15
+        flexDirection: 'column',
+        width: Dimensions.get('screen').width * 0.90,
+        height: 70,
+        gap: 5
     },
     label: {
+        flex: 1,
         fontSize: 14,
         fontWeight: '400',
-        marginBottom: 5,
-        color:"#9586A8",
         lineHeight:22,
-        marginLeft:13
+        paddingHorizontal: 14,
+        color:"#9586A8",
     },
     input: {
-        width: '100%',
-        height: 40,
+        flex: 1,
+        fontSize: 17,
+        fontWeight: '400',
+        lineHeight:22,
         borderRadius: 8,
         paddingHorizontal: 14,
-        fontSize: 16,
-        backgroundColor:"#fff"
-
+        paddingVertical: 10,
+        backgroundColor:"#fff",
     },
 });
 
