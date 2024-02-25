@@ -1,5 +1,6 @@
 import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View} from 'react-native';
+import {useState} from "react";
 import CustomButton from "./src/common/customs/CustomButton/CustomButton";
 import HeartIcon from "./src/common/icons/HeartIcon/HeartIcon";
 import CustomSearchBar from "./src/common/customs/CustomSearchBar/CustomSearchBar";
@@ -8,14 +9,13 @@ import CustomChip from "./src/common/customs/CustomChip/CustomChip"
 import CheckIcon from "./src/common/icons/CheckIcon/CheckIcon";
 import GridIcon from "./src/common/icons/GridIcon/GridIcon"
 import BikeIcon from "./src/common/icons/BikeIcon/BikeIcon"
-import {useState} from "react";
 import CustomRowRadioButton from "./src/common/customs/CustomRowRadioButton/CustomRowRadioButton";
 import CustomItemCard from "./src/common/customs/CustomItemCard/CustomItemCard";
 import CustomItemRowCard from "./src/common/customs/CustomItemRowCard/CustomItemRowCard";
-import SplashScreen from "./src/screens/SplashScreen/SplashScreen";
 import DroneIcon from "./src/common/icons/DroneIcon/DroneIcon";
 import CustomRowItemCard from "./src/common/customs/CustomRowItemCard/CustomRowItemCard";
 import SplashScreen from "./src/screens/SplashScreen/SplashScreen";
+import SignInScreen from "./src/screens/SignInScreen/SignInScreen";
 
 export default function App() {
 
@@ -79,6 +79,7 @@ export default function App() {
             {/*<SplashScreen/>*/}
             {/*<SplashScreen2/>*/}
 
+            <SignInScreen text="Sign In Screen"/>
 
         </View>
     );
@@ -87,7 +88,8 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#1e111e',
+        backgroundColor: '#797579',
+        // backgroundColor: '#1e111e',
         alignItems: 'center',
         justifyContent: 'center',
     },
