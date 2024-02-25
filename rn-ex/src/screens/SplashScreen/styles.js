@@ -13,10 +13,13 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 63,
         left: 20,
+
     },
     logoImgStyle: {
         width: 63,
-        height: 63
+        height: 63,
+        borderRadius: 32,
+
     },
 
     bottomContainer: {
@@ -35,6 +38,8 @@ const styles = StyleSheet.create({
     iconContainer: {
         flex:1,
         justifyContent: 'flex-end',
+        // borderRadius: 52,
+
         // borderWidth: 1
     },
     icon: {

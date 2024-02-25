@@ -11,11 +11,13 @@ import GridIcon from "./src/common/icons/GridIcon/GridIcon"
 import BikeIcon from "./src/common/icons/BikeIcon/BikeIcon"
 import CustomRowRadioButton from "./src/common/customs/CustomRowRadioButton/CustomRowRadioButton";
 import CustomItemCard from "./src/common/customs/CustomItemCard/CustomItemCard";
-import CustomItemRowCard from "./src/common/customs/CustomItemRowCard/CustomItemRowCard";
 import DroneIcon from "./src/common/icons/DroneIcon/DroneIcon";
 import CustomRowItemCard from "./src/common/customs/CustomRowItemCard/CustomRowItemCard";
 import SplashScreen from "./src/screens/SplashScreen/SplashScreen";
-import SignInScreen from "./src/screens/SignInScreen/SignInScreen";
+import HeaderNavBar from "./src/components/sections/Headers/HeaderNavBar/HeaderNavBar";
+import AuthLayout from "./src/common/layouts/AuthLayout/AuthLayout";
+import LoginScreen from "./src/screens/LoginScreen/LoginScreen";
+import RegisterScreen from "./src/screens/RegisterScreen/RegisterScreen";
 
 export default function App() {
 
@@ -68,19 +70,17 @@ export default function App() {
             {/*    sellingType="kg"/>*/}
 
 
-
-            {/*<CustomItemRowCard*/}
-            {/*    productName="Elvin Süleymanov"*/}
-            {/*    price={31.69}*/}
-            {/*    currency={"$"}*/}
-            {/*    sellingType={"kg"}*/}
-            {/*    imageSource={"https://media.licdn.com/dms/image/D4E03AQGd5EIHXzm16A/profile-displayphoto-shrink_400_400/0/1707342851731?e=1714003200&v=beta&t=MoQZZJ6VGFm49LIxZtNbZOTE9ix9H8vSiSXBy5fl4vs"}/>*/}
-
             {/*<SplashScreen/>*/}
             {/*<SplashScreen2/>*/}
 
-            <SignInScreen text="Sign In Screen"/>
+            {/*<SignInScreen text="Sign In Screen"/>*/}
 
+            {/*<HeaderNavBar titleShown={true} title="Ckeckout"/>*/}
+
+            {/*<AuthLayout buttonText="SIGN IN"/>*/}
+
+            {/*<LoginScreen/>*/}
+            {/*<RegisterScreen/>*/}
         </View>
     );
 }

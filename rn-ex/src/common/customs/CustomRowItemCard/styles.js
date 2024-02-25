@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     header: {
         flex: 1,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
         // borderWidth: 1,
         // alignItems: 'center'
     },
@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: 20,
         gap: 5,
-        alignItems: 'center',
+        alignItems: 'flex-start',
+        // justifyContent: "flex-start"
     },
     price: {
         fontSize: 22,
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "400",
         color: 'rgba(0,0,0,0.5)',
+
     },
     footer: {
         // borderWidth: 1,

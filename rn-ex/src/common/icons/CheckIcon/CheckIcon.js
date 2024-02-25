@@ -10,13 +10,13 @@ const CheckIcon = (props) => {
         <View style={styles.iconContainer}>
             <Svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={width ? width : 18}
-                height={height ? height : 13}
+                width={width || 18}
+                height={height || 13}
                 fill="none"
                 {...props}
             >
                 <Path
-                    stroke={color ? color : "#14142B"}
+                    stroke={color || "#14142B"}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={1.5}
@@ -41,3 +41,4 @@ const styles = StyleSheet.create({
 
 
 export default CheckIcon;
+
