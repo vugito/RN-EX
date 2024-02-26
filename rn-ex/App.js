@@ -18,6 +18,7 @@ import HeaderNavBar from "./src/components/sections/Headers/HeaderNavBar/HeaderN
 import AuthLayout from "./src/common/layouts/AuthLayout/AuthLayout";
 import LoginScreen from "./src/screens/LoginScreen/LoginScreen";
 import RegisterScreen from "./src/screens/RegisterScreen/RegisterScreen";
+import ProductItemScreen from "./src/screens/ProductItemScreen/ProductItemScreen";
 
 export default function App() {
 
@@ -33,6 +34,10 @@ export default function App() {
     const handleRadioSelect = (value) => {
         setSelected(value);
     };
+
+
+
+
 
     return (
         <View style={styles.container}>
@@ -81,6 +86,8 @@ export default function App() {
 
             {/*<LoginScreen/>*/}
             {/*<RegisterScreen/>*/}
+
+            <ProductItemScreen productName={"Boston Lettuce"} price={"1.10"} currency={'€'} weight={'150gr'} additionalSellingType={"piece"} country={"Spain"} sellingType={"price"} description={"Lettuce is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled."}/>
         </View>
     );
 }
