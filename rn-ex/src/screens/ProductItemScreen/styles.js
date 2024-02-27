@@ -6,9 +6,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
-    backgroundImage: {
-        flex: 1,
-    },
     bottomContainer: {
         position: 'absolute',
         left: 0,
@@ -106,6 +103,12 @@ const styles = StyleSheet.create({
     },
     addToCartButtonText:{
         color:"#fff",
+    },
+    heartIcon: {
+        color: "#9586A8",
+    },
+    shoppingCardIcon: {
+        color: "#ffffff"
     }
 
 
