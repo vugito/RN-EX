@@ -21,6 +21,7 @@ import RegisterScreen from "./src/screens/RegisterScreen/RegisterScreen";
 import ProductItemScreen from "./src/screens/ProductItemScreen/ProductItemScreen";
 import PaymentCardScreen from "./src/screens/PaymentCardScreen/PaymentCardScreen";
 import CategoriesScreen from "./src/screens/CategoriesScreen/CategoriesScreen";
+import ProductsScreen from "./src/screens/ProductsScreen/ProductsScreen";
 
 export default function App() {
 
@@ -93,7 +94,9 @@ export default function App() {
 
             {/*<PaymentCardScreen/>*/}
 
-            <CategoriesScreen/>
+            <ProductsScreen title={"Vegatables"} backgroundImage={require('./assets/images/broccoli.png')} />
+
+
         </View>
     );
 }

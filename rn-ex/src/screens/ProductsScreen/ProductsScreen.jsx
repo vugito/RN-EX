@@ -1,11 +1,16 @@
 import React from 'react';
 import {View, Text} from "react-native";
 import styles from './styles';
-const ProductsScreen = ({text}) => {
+import ItemsHeaderNavbarLayout from "../../components/sections/Headers/ItemsHeaderNavbarLayout/ItemsHeaderNavbarLayout";
+import CustomItemCard from "../../common/customs/CustomItemCard/CustomItemCard";
+import CustomRowItemCard from "../../common/customs/CustomRowItemCard/CustomRowItemCard";
+const ProductsScreen = ({title, backgroundImage}) => {
     return (
-        <View style={styles.container}>
-            <Text >{text}</Text>
-        </View>
+        <ItemsHeaderNavbarLayout title={title} backgroundImage={backgroundImage} main={
+            <>
+
+            </>
+        }></ItemsHeaderNavbarLayout>
     );
 };
 

@@ -23,6 +23,14 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         lineHeight: 22,
         color: "#2D0C57"
+    },
+    backgroundImage:{
+        position:"absolute",
+        top:0,
+        right:0,
+        width:180,
+        height:180,
+        zIndex:0
     }
 });
 
