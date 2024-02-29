@@ -26,6 +26,16 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         backgroundColor:"#fff",
     },
+    iconContainer: {
+        position: 'absolute',
+        right: 0,
+        top:25,
+        bottom: 0,
+        paddingRight: Dimensions.get('screen').width * 0.04,
+        flex:1,
+        justifyContent:"center"
+    },
+
 });
 
 export default styles;
