@@ -96,6 +96,12 @@ export default function App() {
 
             <ProductsScreen title={"Vegatables"} backgroundImage={require('./assets/images/broccoli.png')} />
 
+            {/*<CustomRowItemCard*/}
+            {/*    productName="Apple"*/}
+            {/*    productImg={require("./assets/images/elvin.jpg")}*/}
+            {/*    productPrice="3.50"*/}
+            {/*    currency="$"*/}
+            {/*    sellingType="kg"/>*/}
 
         </View>
     );

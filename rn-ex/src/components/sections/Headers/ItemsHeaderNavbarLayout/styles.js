@@ -6,10 +6,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#F6F5F5',
-        alignItems: 'center',
         justifyContent: 'center',
+        alignItems:"center",
         width:"100%",
-        height:"100%"
+        height:"100%",
     },
     main:{
         flex:1,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         flexWrap:"wrap",
-        gap:25
+        gap:15
     },
 
 
