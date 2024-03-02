@@ -5,16 +5,26 @@ import ItemsHeaderNavbarLayout from "../../components/sections/Headers/ItemsHead
 import CustomItemCard from "../../common/customs/CustomItemCard/CustomItemCard";
 import CustomRowItemCard from "../../common/customs/CustomRowItemCard/CustomRowItemCard";
 import CustomChip from "../../common/customs/CustomChip/CustomChip"
-const ProductsScreen = ({title, backgroundImage}) => {
+import {useNavigation} from "@react-navigation/native";
+const ProductsScreen = ({title="Vegatables", backgroundImage}) => {
 
     const [selected,setSelected]=useState();
 
+    const navigation = useNavigation();
+
+    const handleCardClick = () => {
+        navigation.navigate('ItemDetailsScreen');
+    };
+
+    const handleBackClick = () => {
+        navigation.navigate('Home', { screen: 'CategoriesScreen' });
+    };
+
     return (
-        <ItemsHeaderNavbarLayout title={title} backgroundImage={backgroundImage} main={
+        <ItemsHeaderNavbarLayout onClick={handleBackClick} title={title} backgroundImage={backgroundImage} main={
             <>
 
                 <View style={styles.chipsContainer}>
-
                     <CustomChip value={"Tomatoes"} selected={selected} setSelected={setSelected} quantity={18}/>
                     <CustomChip value={"Elvins"} selected={selected} setSelected={setSelected} quantity={31}/>
                     <CustomChip value={"Trans"} selected={selected} setSelected={setSelected} quantity={72}/>
@@ -22,7 +32,6 @@ const ProductsScreen = ({title, backgroundImage}) => {
                     <CustomChip value={"Tomatoes"} selected={selected} setSelected={setSelected} quantity={69}/>
                     <CustomChip value={"Creepies"} selected={selected} setSelected={setSelected} quantity={24}/>
                     <CustomChip value={"STAY HARD"} selected={selected} setSelected={setSelected} quantity={31}/>
-
                 </View>
 
                 <CustomRowItemCard
@@ -30,7 +39,8 @@ const ProductsScreen = ({title, backgroundImage}) => {
                     productImg={require("../../../assets/images/elvin.jpg")}
                     productPrice="3.50"
                     currency="$"
-                    sellingType="kg"/>
+                    sellingType="kg" onClick={handleCardClick}
+                />
 
                 <CustomRowItemCard
                     productName="Apple"

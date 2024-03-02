@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         height: '100%',
+        position:"relative"
     },
     bottomContainer: {
         position: 'absolute',
@@ -109,6 +110,12 @@ const styles = StyleSheet.create({
     },
     shoppingCardIcon: {
         color: "#ffffff"
+    },
+    headerContainerStyle:{
+        position:"absolute",
+        height:60,
+        zIndex:9999,
+        backgroundColor: 'rgba(0, 0, 0, 0)'
     }
 
 

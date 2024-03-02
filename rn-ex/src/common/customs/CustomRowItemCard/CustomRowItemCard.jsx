@@ -1,11 +1,12 @@
 import React from "react";
-import {View, Text, StyleSheet, Dimensions, Image} from "react-native";
+import {View, Text, StyleSheet, Dimensions, Image, TouchableOpacity} from "react-native";
 import CustomButton from "../CustomButton/CustomButton";
 import HeartIcon from "../../icons/HeartIcon/HeartIcon";
 import ShoppingCartIcon from "../../icons/ShoppingCartIcon/ShoppingCartIcon";
 
-const CustomRowItemCard = ({productImg, productName, productPrice, currency, sellingType}) => {
+const CustomRowItemCard = ({productImg, productName, productPrice, currency, sellingType,onClick}) => {
     return (
+        <TouchableOpacity onPress={onClick}>
         <View style={styles.cardContainer}>
             <View style={styles.leftSubContainer}>
                 <Image source={productImg} style={styles.image}/>
@@ -37,6 +38,7 @@ const CustomRowItemCard = ({productImg, productName, productPrice, currency, sel
                 </View>
             </View>
         </View>
+        </TouchableOpacity>
     );
 };
 

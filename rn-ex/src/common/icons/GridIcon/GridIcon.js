@@ -1,9 +1,20 @@
 import * as React from "react";
 import Svg, {Path} from "react-native-svg";
 import {View, StyleSheet} from "react-native";
+import { useIsFocused } from '@react-navigation/native';
 
 const GridIcon = (props) => {
-    const { width, height, color, boxInsideColor, containerStyle } = props;
+    const { width, height, containerStyle } = props;
+
+    const isFocused = useIsFocused();
+
+
+    const activeBorderColor = '#7203FF';
+    const inactiveBorderColor = '#9586A8';
+
+    const activeBoxInsideColor='rgba(114,3,255,0.5)';
+    const inactiveBoxInsideColor='#F6F5F5';
+
 
     return (
 
@@ -12,11 +23,11 @@ const GridIcon = (props) => {
                 xmlns="http://www.w3.org/2000/svg"
                 width={width ? width : 20}
                 height={height ? height : 20}
-                fill={boxInsideColor}
+                fill={isFocused ? activeBoxInsideColor : inactiveBoxInsideColor}
                 {...props}
             >
                 <Path
-                    stroke={color ? color : "#14142B"}
+                    stroke={isFocused ? activeBorderColor : inactiveBorderColor}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={1.5}
@@ -29,12 +40,8 @@ const GridIcon = (props) => {
 
 const styles = StyleSheet.create({
     iconContainer: {
-        // backgroundColor: 'red',
-        // width: 40,
-        // height: 40,
-        // alignItems:"center",
-        // justifyContent: "center",
-        // borderRadius: 20,
+        justifyContent: "flex-end",
+        flex:1,
     },
 
 })

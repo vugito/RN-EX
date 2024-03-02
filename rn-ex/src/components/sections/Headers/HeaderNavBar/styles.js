@@ -2,15 +2,16 @@ import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        // position: "absolute",
         width: "100%",
         height: 96,
         backgroundColor: "#F6F5F5",
+        position: "relative",
     },
     btnStyle: {
         position: "absolute",
         top: 62,
         left: 21,
+        zIndex:99999
     },
     titleContainer: {
         flex: 1,
@@ -31,7 +32,13 @@ const styles = StyleSheet.create({
         width:180,
         height:180,
         zIndex:0
-    }
+    },
+    backBtnStyle: {
+        position: "absolute",
+        top: 262,
+        left: 21,
+        // zIndex:99999,
+    },
 });
 
 export default styles;

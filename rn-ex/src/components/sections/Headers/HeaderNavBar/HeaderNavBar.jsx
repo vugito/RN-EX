@@ -1,16 +1,16 @@
 import React from 'react';
-import {View, Text, Pressable, Image} from "react-native";
+import {View, Text, Pressable, Image, TouchableOpacity} from "react-native";
 import styles from './styles';
 import ChevronLeftIcon from "../../../../common/icons/ChevronLeftIcon/ChevronLeftIcon";
 
-const HeaderNavBar = ({titleShown, title,backroundImage}) => {
+const HeaderNavBar = ({titleShown,containerStyle, title,backroundImage,onClick}) => {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container,containerStyle]}>
             <Image source={backroundImage} style={styles.backgroundImage} />
 
-            <Pressable style={styles.btnStyle}>
+            <TouchableOpacity style={styles.btnStyle} onPress={onClick}>
                 <ChevronLeftIcon color="#2D0C57"/>
-            </Pressable>
+            </TouchableOpacity>
 
             {titleShown &&
                 <View style={styles.titleContainer}>

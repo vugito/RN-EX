@@ -11,10 +11,11 @@ const CustomButton = (props) => {
         text,
         textStyles,
         buttonStyles,
+        onClick
     } = props;
 
     return (
-        <Pressable style={[styles.container, buttonStyles]}>
+        <Pressable style={[styles.container, buttonStyles]} onPress={onClick}>
             {iconShown && icon}
             {textShown &&
                 <Text style={[styles.text, textStyles]}>{text}</Text>}

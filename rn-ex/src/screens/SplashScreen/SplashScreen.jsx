@@ -1,11 +1,19 @@
 import React from 'react';
-import {View, Text, ImageBackground, Image} from "react-native";
+import {View, Text, ImageBackground, Image,TouchableOpacity} from "react-native";
 import styles from "./styles"
 import BoxIcon from "../../common/icons/BoxIcon/BoxIcon";
 import CustomButton from "../../common/customs/CustomButton/CustomButton";
+import {useNavigation} from "@react-navigation/native";
 
 
 const SplashScreen = () => {
+
+    const navigation = useNavigation();
+
+    const handleOrderNow = () => {
+        navigation.navigate('Home', { screen: 'CategoriesScreen' });
+    };
+
     return (
         <View style={styles.container}>
 
@@ -38,9 +46,9 @@ const SplashScreen = () => {
                     </View>
 
                     <View style={styles.buttonsContainer}>
-                        <CustomButton textShown={true} buttonStyles={styles.orderNowButton} text="ORDER NOW"
+                        <CustomButton textShown={true} onClick={handleOrderNow}  buttonStyles={styles.orderNowButton} text="ORDER NOW"
                                       iconShown={false} textStyles={styles.orderNowButtonText}/>
-                        <CustomButton textShown={true} buttonStyles={styles.dismissButton} text="DISMISS"
+                        <CustomButton textShown={true} onClick={handleOrderNow} buttonStyles={styles.dismissButton} text="DISMISS"
                                       iconShown={false} textStyles={styles.dismissButtonText}/>
 
                     </View>

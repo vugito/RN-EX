@@ -5,14 +5,14 @@ import HeaderNavBar from "../HeaderNavBar/HeaderNavBar";
 import CustomSearchBar from "../../../../common/customs/CustomSearchBar/CustomSearchBar";
 import CustomItemCard from "../../../../common/customs/CustomItemCard/CustomItemCard";
 
-const ItemsHeaderNavbarLayout = ({main,title,backgroundImage}) => {
+const ItemsHeaderNavbarLayout = ({main,title,backgroundImage,onClick}) => {
     return (
 
 
         <View style={styles.container}>
 
 
-            <HeaderNavBar titleShown={true} backroundImage={backgroundImage}/>
+            <HeaderNavBar onClick={onClick} titleShown={true} backroundImage={backgroundImage}/>
 
             <ScrollView>
 

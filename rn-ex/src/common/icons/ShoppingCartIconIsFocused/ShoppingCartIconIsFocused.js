@@ -3,7 +3,7 @@ import Svg, {Path} from "react-native-svg";
 import {View, StyleSheet} from "react-native";
 import {useIsFocused} from "@react-navigation/native";
 
-const UserIcon = (props) => {
+const ShoppingCartIconIsFocused = (props) => {
     const {width, height} = props;
 
     const isFocused = useIsFocused();
@@ -15,14 +15,13 @@ const UserIcon = (props) => {
     const activeBoxInsideColor='rgba(114,3,255,0.5)';
     const inactiveBoxInsideColor='#F6F5F5';
 
-
     return (
 
         <View style={styles.iconContainer}>
             <Svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={width ? width : 18}
-                height={height ? height : 20}
+                width={width ? width : 24}
+                height={height ? height : 18}
                 fill={isFocused ? activeBoxInsideColor : inactiveBoxInsideColor}
                 {...props}
             >
@@ -31,7 +30,7 @@ const UserIcon = (props) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={1.5}
-                    d="M17 19v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 9a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+                    d="M5.143 1h17.143L20.57 11.286H6.857L5.143 1ZM8.571 17a1.143 1.143 0 1 0 0-2.286 1.143 1.143 0 0 0 0 2.286ZM18.857 17a1.143 1.143 0 1 0 0-2.286 1.143 1.143 0 0 0 0 2.286ZM5.143 1H1.714"
                 />
             </Svg>
         </View>
@@ -44,13 +43,12 @@ const styles = StyleSheet.create({
         // width: 40,
         // height: 40,
         // alignItems:"center",
-        // borderRadius: 20,
-        flex:1,
         justifyContent: "flex-end",
-
+        flex:1
+        // borderRadius: 20,
     },
 
 })
 
 
-export default UserIcon;
+export default ShoppingCartIconIsFocused;

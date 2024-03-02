@@ -1,13 +1,27 @@
-import React, { useState } from 'react';
-import { View, Text, ImageBackground, Image, TouchableOpacity } from "react-native";
+import React, {useState} from 'react';
+import {View, Text, ImageBackground, Image, TouchableOpacity} from "react-native";
 import styles from './styles';
 import BoxIcon from "../../common/icons/BoxIcon/BoxIcon";
 import CustomButton from "../../common/customs/CustomButton/CustomButton";
 import Carousel from "../../components/Carousel/Carousel"
 import HeartIcon from "../../common/icons/HeartIcon/HeartIcon";
+import ShoppingCartIconIsFocused from "../../common/icons/ShoppingCartIconIsFocused/ShoppingCartIconIsFocused";
+import ChevronLeftIcon from "../../common/icons/ChevronLeftIcon/ChevronLeftIcon";
+import {useNavigation} from "@react-navigation/native";
+import HeaderNavBar from "../../components/sections/Headers/HeaderNavBar/HeaderNavBar";
 import ShoppingCartIcon from "../../common/icons/ShoppingCartIcon/ShoppingCartIcon";
 
-const ProductItemScreen = ({imageUrls,productName,price,currency,sellingType,weight,additionalSellingType,country,description}) => {
+const ProductItemScreen = ({
+                               imageUrls,
+                               productName,
+                               price,
+                               currency,
+                               sellingType,
+                               weight,
+                               additionalSellingType,
+                               country,
+                               description
+                           }) => {
 
     const images = [
         require("../../../assets/images/elvin.jpg"),
@@ -15,8 +29,19 @@ const ProductItemScreen = ({imageUrls,productName,price,currency,sellingType,wei
         require("../../../assets/images/elvin.jpg"),
     ];
     // const images = imageUrls.map(image => require(image));
+
+
+    const navigation = useNavigation();
+
+
+    const handleBackClick = () => {
+        navigation.navigate('Home', {screen: 'ProductsScreen'});
+    };
+
     return (
         <View style={styles.container}>
+
+            <HeaderNavBar onClick={handleBackClick} containerStyle={styles.headerContainerStyle}/>
 
             <Carousel images={images}/>
 
