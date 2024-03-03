@@ -1,11 +1,13 @@
 import React, { createContext, useState, useContext } from 'react';
 import authService from "../api-services/AuthService"
 
-const AuthContext = createContext();
+// fixed {}
+const AuthContext = createContext({});
 
 const AuthService=new authService();
 
 export const AuthProvider = ({ children }) => {
+
     const [user, setUser] = useState(null);
 
     const login = async (email, password) => {
@@ -54,7 +56,8 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        // fixed {register}
+        <AuthContext.Provider value={{ user, login, logout, register }}>
             {children}
         </AuthContext.Provider>
     );

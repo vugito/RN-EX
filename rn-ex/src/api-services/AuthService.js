@@ -1,10 +1,9 @@
 export default class AuthService {
     constructor() {
-        this.baseUrl='https://217.64.21.237:7261/api'
+        // this.baseUrl='https://217.64.21.237:7261/api'
+        // fixed avazdg.tech server
+        this.baseUrl='https://avazdg.tech:7261/api'
     }
-
-
-
     async Login(requestBody) {
         try {
             const response = await fetch(`${this.baseUrl}/Account/login`, {
@@ -22,7 +21,6 @@ export default class AuthService {
         }
     }
 
-
     async Register(requestBody) {
         try {
             const response = await fetch(`${this.baseUrl}/Account/register-default-account`, {
@@ -38,6 +36,4 @@ export default class AuthService {
             throw error;
         }
     }
-
-
 }
