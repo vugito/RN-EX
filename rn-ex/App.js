@@ -25,6 +25,8 @@ import ProductsScreen from "./src/screens/ProductsScreen/ProductsScreen";
 import {NavigationContainer} from "@react-navigation/native"
 import BottomTabNavigation from "./src/navigation/BottomTabNavigation";
 import BaseStackNavigation from "./src/navigation/BaseStackNavigation";
+import CheckoutScreen from "./src/screens/CheckoutScreen/CheckoutScreen";
+import CustomRadioButton from "./src/common/customs/CustomRadioButton/CustomRadioButton";
 
 
 export default function App() {
@@ -34,6 +36,7 @@ export default function App() {
         backgroundColor: 'red'
     }
 
+    const [checked,setChecked]=useState();
     const [selected,setSelected]=useState();
     const [selected2,setSelected2]=useState();
 
@@ -43,13 +46,21 @@ export default function App() {
     };
 
 
-
+    const handleRadioButtonChange = () => {
+        setChecked(!checked);
+    };
 
 
     return (
         <NavigationContainer>
              <BaseStackNavigation/>
+            {/*<CheckoutScreen/>*/}
          </NavigationContainer>
+
+
+        // <View style={styles.container}>
+        //     <CustomRadioButton isChecked={checked} onRadioButtonChange={handleRadioButtonChange}/>
+        // </View>
 
         // <View style={styles.container}>
         //     {/*<CustomSearchBar/>*/}

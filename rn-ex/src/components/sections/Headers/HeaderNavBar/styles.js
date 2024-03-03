@@ -4,8 +4,9 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: 96,
-        backgroundColor: "#F6F5F5",
+        backgroundColor: "#fefefe",
         position: "relative",
+
     },
     btnStyle: {
         position: "absolute",

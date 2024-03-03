@@ -5,6 +5,7 @@ import GridIcon from "../common/icons/GridIcon/GridIcon";
 import ShoppingCartIconIsFocused from "../common/icons/ShoppingCartIconIsFocused/ShoppingCartIconIsFocused";
 import UserIcon from "../common/icons/UserIcon/UserIcon";
 import HomeStackNavigation from "./HomeStackNavigation";
+import CheckoutScreen from "../screens/CheckoutScreen/CheckoutScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,7 @@ const BottomTabNavigation = () => {
 
             <Tab.Screen
                 name="ShoppingCartScreen"
-                component={SplashScreen}
+                component={CheckoutScreen}
                 options={{
                     tabBarLabel: '',
                     title: '',
