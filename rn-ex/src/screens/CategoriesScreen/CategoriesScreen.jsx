@@ -31,14 +31,11 @@ const CategoriesScreen = () => {
 
 
     useEffect(() => {
-
         const GetAllCategories = async ()=>{
-            console.log('Categories')
+            console.log('UseEffect GetAllCategories')
             const response = await getAllCategories();
             console.log(response)
         }
-
-
 
         GetAllCategories();
     }, [])

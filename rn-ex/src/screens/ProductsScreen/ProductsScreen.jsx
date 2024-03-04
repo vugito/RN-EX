@@ -15,10 +15,24 @@ const ProductsScreen = ({title= "Vegatables", backgroundImage}) => {
         setSelectedProductId,
         products,
         getAllProductsByCategoryId,
+        currentCategoryTypes,
+        getAllTypesByCategoryId
     } = useCommon();
 
 
-    const [selected,setSelected]=useState();
+    const [selectedCategoryTypes, setSelectedCategoryTypes] = useState([]);
+
+    const [filteredProducts, setFilteredProducts] = useState([]);
+
+    const handleCategoryTypeSelection = (categoryId) => {
+        if (selectedCategoryTypes.includes(categoryId)) {
+            setSelectedCategoryTypes(selectedCategoryTypes.filter(id => id !== categoryId));
+        } else {
+            setSelectedCategoryTypes([...selectedCategoryTypes, categoryId]);
+        }
+    };
+
+
 
     const navigation = useNavigation();
 
@@ -32,12 +46,38 @@ const ProductsScreen = ({title= "Vegatables", backgroundImage}) => {
     };
 
 
-    useEffect(async() => {
+    useEffect(() => {
         const GetAllProducts=async ()=>{
             const response = await getAllProductsByCategoryId(selectedCategoryId);
         }
+
+        const GetAllTypes=async ()=>{
+            const responseTypes = await getAllTypesByCategoryId(selectedCategoryId);
+        }
+
+        GetAllTypes();
         GetAllProducts();
+
+        console.log(products)
     }, [selectedCategoryId]);
+
+    useEffect(() => {
+        const filterProducts = () => {
+            setFilteredProducts([]);
+            console.log("filterProductsStart");
+            if (products && selectedCategoryTypes) {
+                console.log("if selectedCategoryTypes: ",selectedCategoryTypes);
+                console.log("products: ",products);
+                const filteredProducts = products.filter(product => selectedCategoryTypes.includes(product.productType.id)
+                );
+                setFilteredProducts(filteredProducts);
+            }
+        };
+
+        filterProducts();
+    }, [selectedCategoryTypes]);
+
+
 
 
     return (
@@ -45,16 +85,23 @@ const ProductsScreen = ({title= "Vegatables", backgroundImage}) => {
         <PrivateRoute children={
             <ItemsHeaderNavbarLayout onClick={handleBackClick} title={title} backgroundImage={backgroundImage} main={
                 <>
-
                     <View style={styles.chipsContainer}>
-                        <CustomChip value={"Tomatoes"} selected={selected} setSelected={setSelected} quantity={18}/>
-                        <CustomChip value={"Elvins"} selected={selected} setSelected={setSelected} quantity={31}/>
-                        <CustomChip value={"Trans"} selected={selected} setSelected={setSelected} quantity={72}/>
-                        <CustomChip value={"Gays"} selected={selected} setSelected={setSelected} quantity={11}/>
-                        <CustomChip value={"Tomatoes"} selected={selected} setSelected={setSelected} quantity={69}/>
-                        <CustomChip value={"Creepies"} selected={selected} setSelected={setSelected} quantity={24}/>
-                        <CustomChip value={"STAY HARD"} selected={selected} setSelected={setSelected} quantity={31}/>
+                        {currentCategoryTypes ? (
+                            currentCategoryTypes.map((item) => (
+                                <CustomChip
+                                    key={item.id}
+                                    value={item.name}
+                                    selected={selectedCategoryTypes.includes(item.id)}
+                                    setSelected={() => handleCategoryTypeSelection(item.id)}
+                                    // quantity={chip.quantity}
+                                />
+                            ))
+                        ) : (
+                            <Text>Loading category Types...</Text>
+                        )}
                     </View>
+
+
 
                     {/*<CustomRowItemCard*/}
                     {/*    productName="Apple"*/}
@@ -70,8 +117,8 @@ const ProductsScreen = ({title= "Vegatables", backgroundImage}) => {
                     {/*        console.log(item.name)}}/>*/}
                     {/*)))*/}
 
-                    {products ? (
-                        products.map((item) => (
+                    {filteredProducts.length > 0 ? (
+                        filteredProducts.map((item) => (
                             <CustomRowItemCard
                                 key={item.id}
                                 productName={item.name}
@@ -79,11 +126,27 @@ const ProductsScreen = ({title= "Vegatables", backgroundImage}) => {
                                 productPrice={item.price}
                                 currency={item.currency}
                                 sellingType={item.sellingType}
-                                onClick={()=>{handleCardClick(item.id)}}/>
+                                onClick={() => handleCardClick(item.id)}
+                            />
                         ))
                     ) : (
-                        <Text>Loading products...</Text>
+                        products ? (
+                            products.map((item) => (
+                                <CustomRowItemCard
+                                    key={item.id}
+                                    productName={item.name}
+                                    productImg={item.img}
+                                    productPrice={item.price}
+                                    currency={item.currency}
+                                    sellingType={item.sellingType}
+                                    onClick={() => handleCardClick(item.id)}
+                                />
+                            ))
+                        ) : (
+                            <Text>Loading products...</Text>
+                        )
                     )}
+
 
 
                 </>

@@ -9,6 +9,7 @@ import DroneIcon from "../../common/icons/DroneIcon/DroneIcon";
 import WalkingIcon from "../../common/icons/WalkingIcon/WalkingIcon";
 import BikeIcon from "../../common/icons/BikeIcon/BikeIcon";
 import CustomRadioButton from "../../common/customs/CustomRadioButton/CustomRadioButton";
+import PrivateRoute from "../../routing/PrivateRoute";
 
 const CheckoutScreen = () => {
 

@@ -18,8 +18,8 @@ export default class CommonDataServices {
         return await this.getResource(`/Details/get-all-categories`);
     }
 
-    async getAllTypes() {
-        return await this.getResource(`/Details/get-all-types`);
+    async getAllTypesByCategoryId(categoryId) {
+        return await this.getResource(`/Details/get-types-by-category-id?categoryId=${categoryId}`);
     }
 
 

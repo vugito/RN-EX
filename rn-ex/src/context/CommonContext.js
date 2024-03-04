@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, {createContext, useState, useContext, useEffect} from 'react';
 import CommonDataServices from "../api-services/CommonDataServices"
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -19,6 +19,7 @@ export const CommonProvider = ({ children }) => {
 
     const [selectedProductId,setSelectedProductId]=useState(null);
 
+    const [currentCategoryTypes,setCurrentCategoryTypes]=useState(null);
 
     const getAllCategories = async () => {
         try {
@@ -78,10 +79,32 @@ export const CommonProvider = ({ children }) => {
         }
     };
 
+    const getAllTypesByCategoryId = async (categoryId)=>{
+        try {
+            const response= await CommonDataService.getAllTypesByCategoryId(categoryId);
+
+            console.log("getAllTypesByCategoryId: ",response);
+
+            if (response !== null && response !== undefined) {
+                setCurrentCategoryTypes(response);
+            } else {
+                throw new Error('Get Types failed');
+            }
+
+        } catch (error) {
+            console.error('Get Categories error:', error);
+            throw error;
+        }
+    }
+
+    useEffect(() => {
+        console.log(currentCategoryTypes);
+    }, [currentCategoryTypes]);
+
 
     return (
         // fixed {register}
-        <CommonContext.Provider value={{ categories, products, currentProduct, getAllCategories, getAllProductsByCategoryId, getProductDetailsById,selectedCategoryId,setSelectedCategoryId,selectedProductId,setSelectedProductId }}>
+        <CommonContext.Provider value={{ categories, products, currentProduct, getAllCategories, getAllProductsByCategoryId, getProductDetailsById,selectedCategoryId,setSelectedCategoryId,selectedProductId,setSelectedProductId,getAllTypesByCategoryId,currentCategoryTypes }}>
             {children}
         </CommonContext.Provider>
     );
