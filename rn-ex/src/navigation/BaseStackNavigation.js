@@ -10,6 +10,9 @@ import ProductItemScreen from "../screens/ProductItemScreen/ProductItemScreen";
 import PaymentCardScreen from "../screens/PaymentCardScreen/PaymentCardScreen";
 import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen/RegisterScreen";
+import BasketScreen from "../screens/BasketScreen/BasketScreen";
+import FavouritesScreen from "../screens/FavouritesScreen/FavouritesScreen";
+import UserProfileScreen from "../screens/UserProfileScreen/UserProfileScreen";
 
 const Stack = createStackNavigator();
 const BaseStackNavigation = () => {
@@ -21,6 +24,13 @@ const BaseStackNavigation = () => {
             <Stack.Screen name="HomeScreen"  options={{headerShown: false}} component={BottomTabNavigation} />
             <Stack.Screen name="PaymentScreen"  options={{headerShown: false}} component={PaymentCardScreen} />
             <Stack.Screen name="ItemDetailsScreen"  options={{headerShown: false}} component={ProductItemScreen} />
+
+            {/* added */}
+            <Stack.Screen name="Basket"  options={{headerShown: false}} component={BasketScreen} />
+            <Stack.Screen name="Favourite"  options={{headerShown: false}} component={FavouritesScreen} />
+
+            <Stack.Screen name="Profile"  options={{headerShown: false}} component={UserProfileScreen} />
+
         </Stack.Navigator>
     );
 };

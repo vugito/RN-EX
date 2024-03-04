@@ -1,9 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import ItemsHeaderNavbarLayout from "../../components/sections/Headers/ItemsHeaderNavbarLayout/ItemsHeaderNavbarLayout";
 import {useNavigation} from "@react-navigation/native";
 import PrivateRoute from "../../routing/PrivateRoute";
 import {useCommon} from "../../context/CommonContext";
 import CustomItemCard from "../../common/customs/CustomItemCard/CustomItemCard";
+import CustomRowItemCard from "../../common/customs/CustomRowItemCard/CustomRowItemCard";
+import {Text} from "react-native";
 
 const CategoriesScreen = () => {
 
@@ -15,6 +17,8 @@ const CategoriesScreen = () => {
 
     // const CommonContext = useCommon();
 
+    const [searchQuery, setSearchQuery] = useState('');
+    const [filteredCategories, setFilteredCategories] = useState([]);
 
     const navigation = useNavigation();
 
@@ -40,20 +44,70 @@ const CategoriesScreen = () => {
         GetAllCategories();
     }, [])
 
+    useEffect(() => {
+        const filterCategories = () => {
+            if (categories) {
+                let filtered = [...categories];
+                if (searchQuery !== '') {
+                    filtered = filtered.filter(category =>
+                        category.name.toLowerCase().includes(searchQuery.toLowerCase())
+                    );
+                }
+                setFilteredCategories(filtered);
+            }
+        };
+
+        filterCategories();
+    }, [searchQuery, categories]);
+
+
+    const handleSearchBarChange = (query) => {
+        setSearchQuery(query);
+    }
+
 
     return (
         <PrivateRoute children={
             <ItemsHeaderNavbarLayout
+                searchIsShown={true}
+                onSearchBarValueChange={handleSearchBarChange}
                 title={"Categories"}
                 onClick={handleBackClick}
                 main={
 
-                (categories && categories.map((item) => (
-                    <CustomItemCard onClick={ ()=>handleCardClick(item.id)} key={item?.id} imageSource={item?.imageUrl} productName={item?.name} quantity={item?.productsQuantity}/>
-                )))
+                // (categories && categories.map((item) => (
+                //     <CustomItemCard onClick={ ()=>handleCardClick(item.id)} key={item?.id} imageSource={item?.imageUrl} productName={item?.name} quantity={item?.productsQuantity}/>
+                // )))
 
 
-            }></ItemsHeaderNavbarLayout>
+                    (filteredCategories && filteredCategories.length > 0 ? (
+                        filteredCategories.map((item) => (
+                            <CustomItemCard
+                                onClick={() => handleCardClick(item.id)}
+                                key={item?.id}
+                                imageSource={item?.imageUrl}
+                                productName={item?.name}
+                                quantity={item?.productsQuantity}
+                            />
+                        ))
+                    ) : (categories && categories.length > 0 ? (
+                            categories.map((item) => (
+                                <CustomItemCard
+                                    onClick={() => handleCardClick(item.id)}
+                                    key={item?.id}
+                                    imageSource={item?.imageUrl}
+                                    productName={item?.name}
+                                    quantity={item?.productsQuantity}
+                                />
+                            ))
+                        ) : (
+                            <div>No categories found.</div>
+                        )
+                    ))
+
+
+
+                }></ItemsHeaderNavbarLayout>
         }>
         </PrivateRoute>
 

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, {createContext, useState, useContext, useEffect} from 'react';
 import AuthServices from "../api-services/AuthServices"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -10,7 +10,6 @@ const AuthService= new AuthServices();
 export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
-
     const login = async (email, password) => {
         try {
             const requestBody= {
@@ -28,9 +27,11 @@ export const AuthProvider = ({ children }) => {
 
             if (response.ok) {
 
-                const user={name:data.name, email:data.email,}
+                const user={name:data.name, email:data.email}
                 setUser(user);
                 await AsyncStorage.setItem('token', JSON.stringify(data.jwt));
+                await AsyncStorage.setItem('user', JSON.stringify(user));
+
             } else {
                 throw new Error(data.message || 'Login failed');
             }
@@ -61,13 +62,32 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const getUserToken=async()=>{
+        return  await AsyncStorage.getItem('token');
+    }
+
+    const getUser=async()=>{
+        const resUser=await AsyncStorage.getItem('user');
+        console.log("resUser: ",resUser);
+        if(resUser) {
+            const userData = JSON.parse(resUser);
+            console.log("userData: ",userData);
+            setUser(userData);
+        }
+        return resUser;
+    }
+
     const logout = () => {
         setUser(null);
     };
 
+    useEffect(() => {
+        console.log(user);
+    }, [user]);
+
     return (
         // fixed {register}
-        <AuthContext.Provider value={{ user, login, logout, register }}>
+        <AuthContext.Provider value={{ user, login, logout, register,getUserToken,getUser }}>
             {children}
         </AuthContext.Provider>
     );

@@ -6,6 +6,9 @@ import ShoppingCartIconIsFocused from "../common/icons/ShoppingCartIconIsFocused
 import UserIcon from "../common/icons/UserIcon/UserIcon";
 import HomeStackNavigation from "./HomeStackNavigation";
 import CheckoutScreen from "../screens/CheckoutScreen/CheckoutScreen";
+import BasketScreen from "../screens/BasketScreen/BasketScreen";
+import FavouritesScreen from "../screens/FavouritesScreen/FavouritesScreen";
+import UserProfileScreen from "../screens/UserProfileScreen/UserProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,9 +28,10 @@ const BottomTabNavigation = () => {
                 }}
             />
 
+            {/* added */}
             <Tab.Screen
-                name="ShoppingCartScreen"
-                component={CheckoutScreen}
+                name="Basket"
+                component={BasketScreen}
                 options={{
                     tabBarLabel: '',
                     title: '',
@@ -38,9 +42,10 @@ const BottomTabNavigation = () => {
                 }}
             />
 
+            {/* added */}
             <Tab.Screen
-                name="ProfileScreen"
-                component={SplashScreen}
+                name="Profile"
+                component={UserProfileScreen}
                 options={{
                     tabBarLabel: '',
                     title: '',
@@ -50,6 +55,51 @@ const BottomTabNavigation = () => {
                     ),
                 }}
             />
+
+            {/* commented */}
+
+            {/*<Tab.Screen*/}
+            {/*    name="Favourite"*/}
+            {/*    component={FavouritesScreen}*/}
+            {/*    options={{*/}
+            {/*        tabBarLabel: '',*/}
+            {/*        title: '',*/}
+            {/*        headerShown: false,*/}
+            {/*        tabBarIcon: () => (*/}
+            {/*            <UserIcon/>*/}
+            {/*        ),*/}
+            {/*    }}*/}
+            {/*/>*/}
+
+            {/* commented */}
+
+            {/*<Tab.Screen*/}
+            {/*    name="ShoppingCartScreen"*/}
+            {/*    component={CheckoutScreen}*/}
+            {/*    options={{*/}
+            {/*        tabBarLabel: '',*/}
+            {/*        title: '',*/}
+            {/*        headerShown: false,*/}
+            {/*        tabBarIcon: () => (*/}
+            {/*            <ShoppingCartIconIsFocused/>*/}
+            {/*        ),*/}
+            {/*    }}*/}
+            {/*/>*/}
+
+            {/* commented */}
+
+            {/*<Tab.Screen*/}
+            {/*    name="ProfileScreen"*/}
+            {/*    component={SplashScreen}*/}
+            {/*    options={{*/}
+            {/*        tabBarLabel: '',*/}
+            {/*        title: '',*/}
+            {/*        headerShown: false,*/}
+            {/*        tabBarIcon: () => (*/}
+            {/*            <UserIcon/>*/}
+            {/*        ),*/}
+            {/*    }}*/}
+            {/*/>*/}
 
         </Tab.Navigator>
     );

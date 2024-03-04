@@ -4,7 +4,9 @@ import CustomButton from "../CustomButton/CustomButton";
 import HeartIcon from "../../icons/HeartIcon/HeartIcon";
 import ShoppingCartIcon from "../../icons/ShoppingCartIcon/ShoppingCartIcon";
 
-const CustomRowItemCard = ({productImg, productName, productPrice, currency, sellingType,onClick}) => {
+const CustomRowItemCard = ({productImg, productName, productPrice, currency, sellingType, onClick,onClickAddToBasket,onClickAddToFavourites}) => {
+
+
     return (
         <TouchableOpacity onPress={onClick}>
         <View style={styles.cardContainer}>
@@ -28,12 +30,14 @@ const CustomRowItemCard = ({productImg, productName, productPrice, currency, sel
                         icon={<HeartIcon color="#9586A8"/>}
                         iconColor="red"
                         buttonStyles={styles.heartBtnStyle}
+                        onClick={onClickAddToFavourites}
                     />
                     <CustomButton
                         iconShown={true}
                         icon={<ShoppingCartIcon color="#fff"/>}
                         iconColor="red"
                         buttonStyles={styles.shoppingCartBtnStyle}
+                        onClick={onClickAddToBasket}
                     />
                 </View>
             </View>

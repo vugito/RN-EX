@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
         flex:9,
         marginTop:'2%',
         flexDirection:"row",
+        // flexDirection:"row",
         alignItems:"center",
         justifyContent:"center",
         flexWrap:"wrap",

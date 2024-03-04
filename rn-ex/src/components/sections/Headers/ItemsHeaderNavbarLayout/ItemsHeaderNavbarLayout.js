@@ -5,7 +5,7 @@ import HeaderNavBar from "../HeaderNavBar/HeaderNavBar";
 import CustomSearchBar from "../../../../common/customs/CustomSearchBar/CustomSearchBar";
 import CustomItemCard from "../../../../common/customs/CustomItemCard/CustomItemCard";
 
-const ItemsHeaderNavbarLayout = ({main,title,backgroundImage,onClick}) => {
+const ItemsHeaderNavbarLayout = ({main,mainContainerStyle,title,backgroundImage,onClick,searchIsShown,onSearchBarValueChange}) => {
     return (
         <View style={styles.container}>
 
@@ -20,11 +20,13 @@ const ItemsHeaderNavbarLayout = ({main,title,backgroundImage,onClick}) => {
                         <Text style={styles.headerText}>{title}</Text>
                     </View>
 
-                    <View style={styles.searchContainer}>
-                        <CustomSearchBar/>
-                    </View>
+                    {searchIsShown &&
+                        <View style={styles.searchContainer}>
+                            <CustomSearchBar onChangeText={onSearchBarValueChange}/>
+                        </View>
+                    }
 
-                    <View style={styles.mainContainer}>
+                    <View style={[styles.mainContainer,mainContainerStyle]}>
                         {main}
                     </View>
 

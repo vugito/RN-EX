@@ -69,6 +69,7 @@ const Carousel = ({images}) => {
             if (activeIndex === index) {
                 return (
                     <View
+                        key={index}
                         style={{
                             backgroundColor: "#fff",
                             height: 10,

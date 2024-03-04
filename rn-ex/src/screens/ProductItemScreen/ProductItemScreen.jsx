@@ -12,6 +12,8 @@ import HeaderNavBar from "../../components/sections/Headers/HeaderNavBar/HeaderN
 import ShoppingCartIcon from "../../common/icons/ShoppingCartIcon/ShoppingCartIcon";
 import {useCommon} from "../../context/CommonContext";
 import PrivateRoute from "../../routing/PrivateRoute";
+import {useBasket} from "../../context/BasketContext";
+import {useFavourites} from "../../context/FavouriteContext";
 
 const ProductItemScreen = () => {
 
@@ -27,7 +29,9 @@ const ProductItemScreen = () => {
         currentProduct
     } = useCommon();
 
+    const{addProductToBasket}=useBasket();
 
+    const{addProductToFavourites}=useFavourites();
 
     const navigation = useNavigation();
 
@@ -37,8 +41,6 @@ const ProductItemScreen = () => {
             console.log('Product Details => ')
 
             const response = await getProductDetailsById(selectedProductId);
-            console.log(response)
-
         }
 
         GetProductDetailsById();
@@ -50,6 +52,16 @@ const ProductItemScreen = () => {
     const handleBackClick = () => {
         navigation.navigate('Home', {screen: 'ProductsScreen'});
     };
+
+
+    const AddProductToBasket=(product)=>{
+        addProductToBasket(product)
+    }
+
+    const AddProductToFavourites=(product)=>{
+        addProductToFavourites(product)
+    }
+
 
     return (
         <PrivateRoute children={
@@ -96,7 +108,9 @@ const ProductItemScreen = () => {
                             textShown={false}
                             buttonStyles={styles.heartButtonStyles}
                             iconShown={true}
-                            icon={<HeartIcon color={styles.heartIcon.color}/>}/>
+                            icon={<HeartIcon color={styles.heartIcon.color}/>}
+                            onClick={()=>AddProductToFavourites(currentProduct)}
+                        />
 
                         <CustomButton
                             textShown={true}
@@ -104,7 +118,9 @@ const ProductItemScreen = () => {
                             iconShown={true}
                             textStyles={styles.addToCartButtonText}
                             buttonStyles={styles.addToCartButton}
-                            icon={<ShoppingCartIcon color={styles.shoppingCardIcon.color}/>}/>
+                            icon={<ShoppingCartIcon color={styles.shoppingCardIcon.color}/>}
+                            onClick={()=>AddProductToBasket(currentProduct)}
+                        />
                     </View>
 
 

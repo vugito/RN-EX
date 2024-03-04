@@ -17,7 +17,7 @@ const CustomSearchBar = ({ value, onChangeText, onSubmit }) => {
                 placeholder="Search"
                 placeholderTextColor="#9586A8"
                 value={value}
-                onChangeText={onChangeText}
+                onChangeText={(newValue) => onChangeText(newValue)}
                 onSubmitEditing={onSubmit}
             />
         </View>
