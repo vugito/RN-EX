@@ -62,8 +62,10 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const getUserToken=async()=>{
-        return  await AsyncStorage.getItem('token');
+    const getUserToken = async () => {
+        const token= await AsyncStorage.getItem('token');
+        console.log("Token => ", token);
+        return token;
     }
 
     const getUser=async()=>{

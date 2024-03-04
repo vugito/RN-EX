@@ -26,8 +26,10 @@ export const BasketProvider = ({ children }) => {
     };
 
 
-    const FinishShopping =async (token)=>{
-        const response = await BasketService.FinishShopping(token);
+    const FinishShopping =async (token) => {
+        console.log("Basket Context token: ",token);
+        const response = await BasketService.FinishShopping(basket,token);
+        console.log("FINISH SHOPPING RESPONSE: ",response);
         if(response){
             setBasket([]);
         }

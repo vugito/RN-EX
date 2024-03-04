@@ -101,7 +101,7 @@ const CategoriesScreen = () => {
                                 />
                             ))
                         ) : (
-                            <div>No categories found.</div>
+                            <Text>No categories found.</Text>
                         )
                     ))
 

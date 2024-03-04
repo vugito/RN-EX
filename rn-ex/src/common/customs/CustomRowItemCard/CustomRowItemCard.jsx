@@ -4,64 +4,75 @@ import CustomButton from "../CustomButton/CustomButton";
 import HeartIcon from "../../icons/HeartIcon/HeartIcon";
 import ShoppingCartIcon from "../../icons/ShoppingCartIcon/ShoppingCartIcon";
 
-const CustomRowItemCard = ({productImg, productName, productPrice, currency, sellingType, onClick,onClickAddToBasket,onClickAddToFavourites}) => {
+const CustomRowItemCard = ({
+                               productImg,
+                               productName,
+                               productPrice,
+                               currency,
+                               sellingType,
+                               onClick,
+                               onClickAddToBasket,
+                               onClickAddToFavourites
+                           }) => {
 
 
     return (
         <TouchableOpacity onPress={onClick}>
-        <View style={styles.cardContainer}>
-            <View style={styles.leftSubContainer}>
-                <Image source={productImg} style={styles.image}/>
-            </View>
+            <View style={styles.cardContainer}>
+                <View style={styles.leftSubContainer}>
+                    {/* fixed */}
+                    <Image source={{uri:productImg}} style={styles.image}/>
+                    {/*{uri:productImg}*/}
+                </View>
 
-            <View style={styles.rightSubContainer}>
-                <View style={styles.header}>
-                    <Text style={styles.productName}>{productName}</Text>
-                </View>
-                <View style={styles.body}>
-                    <Text style={styles.price}>{productPrice}</Text>
-                    <Text style={styles.currencyAndSellingType}>
-                        {currency} / {sellingType}
-                    </Text>
-                </View>
-                <View style={styles.footer}>
-                    <CustomButton
-                        iconShown={true}
-                        icon={<HeartIcon color="#9586A8"/>}
-                        iconColor="red"
-                        buttonStyles={styles.heartBtnStyle}
-                        onClick={onClickAddToFavourites}
-                    />
-                    <CustomButton
-                        iconShown={true}
-                        icon={<ShoppingCartIcon color="#fff"/>}
-                        iconColor="red"
-                        buttonStyles={styles.shoppingCartBtnStyle}
-                        onClick={onClickAddToBasket}
-                    />
+                <View style={styles.rightSubContainer}>
+                    <View style={styles.header}>
+                        <Text style={styles.productName}>{productName}</Text>
+                    </View>
+                    <View style={styles.body}>
+                        <Text style={styles.price}>{productPrice}</Text>
+                        <Text style={styles.currencyAndSellingType}>
+                            {currency} / {sellingType}
+                        </Text>
+                    </View>
+                    <View style={styles.footer}>
+                        <CustomButton
+                            iconShown={true}
+                            icon={<HeartIcon color="#9586A8"/>}
+                            iconColor="red"
+                            buttonStyles={styles.heartBtnStyle}
+                            onClick={onClickAddToFavourites}
+                        />
+                        <CustomButton
+                            iconShown={true}
+                            icon={<ShoppingCartIcon color="#fff"/>}
+                            iconColor="red"
+                            buttonStyles={styles.shoppingCartBtnStyle}
+                            onClick={onClickAddToBasket}
+                        />
+                    </View>
                 </View>
             </View>
-        </View>
         </TouchableOpacity>
     );
 };
 
 export default CustomRowItemCard;
 
-const {width,height} = Dimensions.get("window");
+const {width, height} = Dimensions.get("window");
 
 const styles = StyleSheet.create({
     cardContainer: {
         flexDirection: "row",
-        height: height*0.2,
-        width:width,
+        height: height * 0.2,
+        width: width,
         paddingVertical: 10,
         paddingHorizontal: 20,
         gap: 5,
     },
     leftSubContainer: {
-        flex:1,
-        alignItems:"center",
+        flex: 1,
+        alignItems: "center",
         justifyContent: "center",
         width: width * 0.4,
     },

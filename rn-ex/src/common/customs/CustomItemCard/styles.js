@@ -13,8 +13,10 @@ const styles = StyleSheet.create({
         maxHeight: 140,
     },
     image:{
+        // width: '100%',
+        // height: '100%',
         width: '100%',
-        height: '100%',
+        height: 120,
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
     },

@@ -33,7 +33,11 @@ const BasketScreen = ({title= "Basket", backgroundImage}) => {
     const RemoveFromBasket=(productId)=> removeProductFromBasket(productId);
 
 
-    const finishShopping=async ()=>await FinishShopping(getUserToken);
+    const finishShopping=async ()=>{
+        const token = await getUserToken();
+        console.log("Finish basket screen token: ",token);
+        await FinishShopping(token);
+    }
 
     return (
 

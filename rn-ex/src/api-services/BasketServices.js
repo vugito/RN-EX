@@ -4,6 +4,8 @@ export default class BasketServices {
     }
     async FinishShopping(requestBody,token) {
         try {
+            console.log("requestBody: ",requestBody);
+            console.log("token: ",token);
             const response = await fetch(`${this.baseUrl}/Details/process-order`, {
                 method: 'POST',
                 headers: {
@@ -20,5 +22,4 @@ export default class BasketServices {
             throw error;
         }
     }
-
 }
