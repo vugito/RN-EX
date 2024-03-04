@@ -1,17 +1,23 @@
 import React, {useState} from 'react';
 import styles from './styles';
-import {Pressable, Text, TextInput, View, KeyboardAvoidingView, Platform, Linking, Alert} from "react-native";
-
-
+import {
+    Pressable,
+    Text,
+    TextInput,
+    View,
+    KeyboardAvoidingView,
+    Platform,
+} from "react-native";
 
 import {Image} from "expo-image";
 import AuthLayout from "../../common/layouts/AuthLayout/AuthLayout";
+import {useAuth} from "../../context/AuthContext";
+import {log} from "expo/build/devtools/logger";
+import {useNavigation} from "@react-navigation/native";
 
-
-
-const LoginScreen = ({navigation}) => {
-
-    // console.log('Navigation: ', navigation.getState());
+const LoginScreen = () => {
+    const auth = useAuth();
+    const navigateTo = useNavigation();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -21,7 +27,6 @@ const LoginScreen = ({navigation}) => {
         setShowPassword(!showPassword);
     };
 
-
     const inputEmailHandler = (text) => {
         setEmail(text);
     };
@@ -30,14 +35,20 @@ const LoginScreen = ({navigation}) => {
         setPassword(text);
     };
 
+    const handleSubmit = async () => {
+        console.log('Login')
+        const response = await auth.login(email, password);
+
+        console.log(response)
+        navigateTo.navigate('WelcomeScreen');
+    }
 
     return (
-        <AuthLayout buttonText={"SIGN IN"}>
+        <AuthLayout buttonText={"SIGN IN"} btnOnClick={handleSubmit}>
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={styles.container}>
                 <Text style={styles.title}>Welcome back!</Text>
-
 
                 <View style={styles.inputsContainer}>
                     <TextInput
@@ -58,18 +69,18 @@ const LoginScreen = ({navigation}) => {
                 <View style={{flexDirection: "row"}}>
                     <Text style={styles.text}>Forgot password? </Text>
                     <Pressable>
-                        <Text style={[styles.text, styles.textBtn ]}>Click</Text>
+                        <Text style={[styles.text, styles.textBtn]}>Click</Text>
                     </Pressable>
                 </View>
 
                 <View style={{flexDirection: "row"}}>
                     <Text style={styles.text}>Don't have an account? </Text>
-                    <Pressable>
-                        <Text style={[styles.text, styles.textBtn ]}>Sign Up</Text>
+                    <Pressable onPress={() => {
+                        navigateTo.navigate('Register')
+                    }}>
+                        <Text style={[styles.text, styles.textBtn]}>Sign Up</Text>
                     </Pressable>
                 </View>
-
-
 
             </KeyboardAvoidingView>
         </AuthLayout>

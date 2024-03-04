@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import SplashScreen from '../screens/SplashScreen/SplashScreen';
 import GridIcon from "../common/icons/GridIcon/GridIcon";
 import ShoppingCartIconIsFocused from "../common/icons/ShoppingCartIconIsFocused/ShoppingCartIconIsFocused";
@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabNavigation = () => {
     return (
-        <Tab.Navigator>
+        <Tab.Navigator initialRouteName={"Home"}>
             <Tab.Screen
                 name="Home"
                 component={HomeStackNavigation}

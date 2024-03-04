@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, ImageBackground, Image, TouchableOpacity} from "react-native";
 import styles from './styles';
 import BoxIcon from "../../common/icons/BoxIcon/BoxIcon";
@@ -10,28 +10,41 @@ import ChevronLeftIcon from "../../common/icons/ChevronLeftIcon/ChevronLeftIcon"
 import {useNavigation} from "@react-navigation/native";
 import HeaderNavBar from "../../components/sections/Headers/HeaderNavBar/HeaderNavBar";
 import ShoppingCartIcon from "../../common/icons/ShoppingCartIcon/ShoppingCartIcon";
+import {useCommon} from "../../context/CommonContext";
+import PrivateRoute from "../../routing/PrivateRoute";
 
-const ProductItemScreen = ({
-                               imageUrls,
-                               productName,
-                               price,
-                               currency,
-                               sellingType,
-                               weight,
-                               additionalSellingType,
-                               country,
-                               description
-                           }) => {
+const ProductItemScreen = () => {
 
-    const images = [
-        require("../../../assets/images/elvin.jpg"),
-        require("../../../assets/images/elvin.jpg"),
-        require("../../../assets/images/elvin.jpg"),
-    ];
-    // const images = imageUrls.map(image => require(image));
+    // const images = [
+    //     require("../../../assets/images/elvin.jpg"),
+    //     require("../../../assets/images/elvin.jpg"),
+    //     require("../../../assets/images/elvin.jpg"),
+    // ];
+
+    const {
+        selectedProductId,
+        getProductDetailsById,
+        currentProduct
+    } = useCommon();
+
 
 
     const navigation = useNavigation();
+
+
+    useEffect( () => {
+        const GetProductDetailsById = async () => {
+            console.log('Product Details => ')
+
+            const response = await getProductDetailsById(selectedProductId);
+            console.log(response)
+
+        }
+
+        GetProductDetailsById();
+    }, []);
+
+    const images = currentProduct?.imageUrls?.map(image => image.url) || [];
 
 
     const handleBackClick = () => {
@@ -39,64 +52,69 @@ const ProductItemScreen = ({
     };
 
     return (
-        <View style={styles.container}>
+        <PrivateRoute children={
+            <View style={styles.container}>
 
-            <HeaderNavBar onClick={handleBackClick} containerStyle={styles.headerContainerStyle}/>
+                <HeaderNavBar onClick={handleBackClick} containerStyle={styles.headerContainerStyle}/>
 
-            <Carousel images={images}/>
-
-
-            <View style={styles.bottomContainer}>
+                <Carousel images={images}/>
 
 
-                <View style={styles.productNameContainer}>
-                    <Text style={styles.productName}>{productName}</Text>
-                </View>
+                <View style={styles.bottomContainer}>
 
 
-                <View style={styles.bodyContainer}>
-
-                    <View style={styles.body}>
-                        <Text style={styles.price}>
-                            {price}
-                        </Text>
-                        <Text style={styles.currencyAndSellingType}>
-                            {currency} / {sellingType}
-                        </Text>
-
+                    <View style={styles.productNameContainer}>
+                        <Text style={styles.productName}>{currentProduct?.name}</Text>
                     </View>
-                    <View style={styles.secondBody}>
-                        <Text style={styles.weightAndSellingType}>
-                            ~{weight} / {additionalSellingType}
-                        </Text>
+
+
+                    <View style={styles.bodyContainer}>
+
+                        <View style={styles.body}>
+                            <Text style={styles.price}>
+                                {currentProduct?.price}
+                            </Text>
+                            <Text style={styles.currencyAndSellingType}>
+                                {currentProduct?.price} / {currentProduct?.sellingType}
+                            </Text>
+
+                        </View>
+                        <View style={styles.secondBody}>
+                            <Text style={styles.weightAndSellingType}>
+                                ~{currentProduct?.weight} / piece
+                            </Text>
+                        </View>
                     </View>
+
+                    <View style={styles.descriptionContainer}>
+                        <Text style={styles.title}>{currentProduct?.manufactureCountry}</Text>
+                        <Text style={styles.description}>{currentProduct?.description}</Text>
+                    </View>
+
+                    <View style={styles.buttonsContainer}>
+                        <CustomButton
+                            textShown={false}
+                            buttonStyles={styles.heartButtonStyles}
+                            iconShown={true}
+                            icon={<HeartIcon color={styles.heartIcon.color}/>}/>
+
+                        <CustomButton
+                            textShown={true}
+                            text="Add to cart"
+                            iconShown={true}
+                            textStyles={styles.addToCartButtonText}
+                            buttonStyles={styles.addToCartButton}
+                            icon={<ShoppingCartIcon color={styles.shoppingCardIcon.color}/>}/>
+                    </View>
+
+
                 </View>
-
-                <View style={styles.descriptionContainer}>
-                    <Text style={styles.title}>{country}</Text>
-                    <Text style={styles.description}>{description}</Text>
-                </View>
-
-                <View style={styles.buttonsContainer}>
-                    <CustomButton
-                        textShown={false}
-                        buttonStyles={styles.heartButtonStyles}
-                        iconShown={true}
-                        icon={<HeartIcon color={styles.heartIcon.color}/>}/>
-
-                    <CustomButton
-                        textShown={true}
-                        text="Add to cart"
-                        iconShown={true}
-                        textStyles={styles.addToCartButtonText}
-                        buttonStyles={styles.addToCartButton}
-                        icon={<ShoppingCartIcon color={styles.shoppingCardIcon.color}/>}/>
-                </View>
-
 
             </View>
+        }>
+        </PrivateRoute>
 
-        </View>
+
     );
 };
 

@@ -1,10 +1,9 @@
-export default class AuthService {
+export default class AuthServices {
     constructor() {
-        // this.baseUrl='https://217.64.21.237:7261/api'
-        // fixed avazdg.tech server
-        this.baseUrl='https://avazdg.tech:7261/api'
+        this.baseUrl='https://avazdg.tech:7300/api'
     }
     async Login(requestBody) {
+        console.log('Start Loggining')
         try {
             const response = await fetch(`${this.baseUrl}/Account/login`, {
                 method: 'POST',
@@ -12,7 +11,12 @@ export default class AuthService {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(requestBody),
+                // mode: 'cors',
+                // cache: 'no-cache',
+                // credentials: 'same-origin',
+
             });
+            console.log('End Succesfully Loggining')
 
             return response;
         } catch (error) {
@@ -23,7 +27,7 @@ export default class AuthService {
 
     async Register(requestBody) {
         try {
-            const response = await fetch(`${this.baseUrl}/Account/register-default-account`, {
+            const response = await fetch(`${this.baseUrl}/Account/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

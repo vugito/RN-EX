@@ -1,10 +1,11 @@
 import React, { createContext, useState, useContext } from 'react';
-import authService from "../api-services/AuthService"
+import AuthServices from "../api-services/AuthServices"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // fixed {}
 const AuthContext = createContext({});
 
-const AuthService=new authService();
+const AuthService= new AuthServices();
 
 export const AuthProvider = ({ children }) => {
 
@@ -12,15 +13,24 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const requestBody={
-                "email":email,
-                "password":password
+            const requestBody= {
+                email: email,
+                password: password
             }
-            const response=AuthService.Login(requestBody)
+
+            const response= await AuthService.Login(requestBody)
+
+            // console.log(response)
+
             const data = await response.json();
 
+            console.log(data)
+
             if (response.ok) {
-                setUser(data.user);
+
+                const user={name:data.name, email:data.email,}
+                setUser(user);
+                await AsyncStorage.setItem('token', JSON.stringify(data.jwt));
             } else {
                 throw new Error(data.message || 'Login failed');
             }
@@ -30,14 +40,14 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const register = async (name,email, password) => {
+    const register = async (name, email, password) => {
         try {
             const requestBody={
                 "name":name,
                 "email":email,
                 "password":password
             }
-            const response=AuthService.Register(requestBody)
+            const response= await AuthService.Register(requestBody)
             const data = await response.json();
 
             if (response.ok) {
@@ -64,3 +74,4 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+

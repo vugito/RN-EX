@@ -1,10 +1,22 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, ImageBackground, Image} from "react-native";
 import styles from './styles';
 import BoxIcon from "../../icons/BoxIcon/BoxIcon";
 import CustomButton from "../../customs/CustomButton/CustomButton";
+import {useAuth} from "../../../context/AuthContext";
+import {useNavigation} from "@react-navigation/native";
 
-const AuthLayout = ({buttonText, children}) => {
+const AuthLayout = ({buttonText, children, btnOnClick}) => {
+
+    const auth = useAuth();
+
+    const navigate = useNavigation();
+
+
+    const handleClick = () => {
+
+    }
+
     return (
         <View style={styles.container}>
 
@@ -25,6 +37,7 @@ const AuthLayout = ({buttonText, children}) => {
                         text={buttonText}
                         buttonStyles={styles.buttonStyles}
                         textStyles={styles.textStyles}
+                        onClick={btnOnClick}
                     />
                 </View>
 

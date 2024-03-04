@@ -27,65 +27,33 @@ const CheckoutScreen = () => {
 
 
     return (
-        <View style={styles.container}>
-            <HeaderNavBar title={"Checkout"} titleShown={true}/>
+        <PrivateRoute children={
+            <View style={styles.container}>
+                <HeaderNavBar title={"Checkout"} titleShown={true}/>
 
-            <View style={styles.main}>
+                <View style={styles.main}>
 
-                <View style={styles.row}>
+                    <View style={styles.row}>
 
-                    <View style={styles.rowHeader}>
+                        <View style={styles.rowHeader}>
 
-                        <Text style={styles.Title}>
-                            Payment Method
-                        </Text>
+                            <Text style={styles.Title}>
+                                Payment Method
+                            </Text>
 
-                        <TouchableOpacity>
-                            <Text style={styles.changeButton}>CHANGE</Text>
-                        </TouchableOpacity>
-
-                    </View>
-
-                    <View style={styles.rowMain}>
-
-                        <View style={styles.cardContainer}>
-
-                            <CreditCardIcon/>
-
-                            <Text style={styles.cardNumber}>**** **** **** 4747</Text>
+                            <TouchableOpacity>
+                                <Text style={styles.changeButton}>CHANGE</Text>
+                            </TouchableOpacity>
 
                         </View>
 
-                    </View>
+                        <View style={styles.rowMain}>
 
-                </View>
+                            <View style={styles.cardContainer}>
 
-                <View style={[styles.row, styles.rowDeliveryAdress]}>
+                                <CreditCardIcon/>
 
-                    <View style={styles.rowHeader}>
-
-                        <Text style={styles.Title}>
-                            Delivery address
-                        </Text>
-
-                        <TouchableOpacity>
-                            <Text style={styles.changeButton}>CHANGE</Text>
-                        </TouchableOpacity>
-
-                    </View>
-
-                    <View style={styles.rowMain}>
-
-                        <View style={styles.cardContainer}>
-
-                            <HomeIcon/>
-
-                            <View style={styles.textsContainer}>
-                                <Text style={[styles.cardNumber, styles.adressText]}>Alexandra Smith</Text>
-                                <Text style={[styles.cardNumber, styles.adressText]}>Cesu 31 k-2 5.st, SIA Chili</Text>
-                                <Text style={[styles.cardNumber, styles.adressText]}>Riga</Text>
-                                <Text style={[styles.cardNumber, styles.adressText]}>LV–1012</Text>
-                                <Text style={[styles.cardNumber, styles.adressText]}>Latvia</Text>
+                                <Text style={styles.cardNumber}>**** **** **** 4747</Text>
 
                             </View>
 
@@ -93,69 +61,106 @@ const CheckoutScreen = () => {
 
                     </View>
 
-                </View>
+                    <View style={[styles.row, styles.rowDeliveryAdress]}>
 
-                <View style={[styles.row,styles.deliveryOptionsRow]}>
+                        <View style={styles.rowHeader}>
 
-                    <View style={styles.rowHeader}>
+                            <Text style={styles.Title}>
+                                Delivery address
+                            </Text>
 
-                        <Text style={styles.Title}>
-                            Delivery options
-                        </Text>
+                            <TouchableOpacity>
+                                <Text style={styles.changeButton}>CHANGE</Text>
+                            </TouchableOpacity>
 
-                        <TouchableOpacity>
-                            <Text style={styles.changeButton}>CHANGE</Text>
-                        </TouchableOpacity>
+                        </View>
 
-                    </View>
+                        <View style={styles.rowMain}>
 
-                    <View style={styles.rowMain}>
+                            <View style={styles.cardContainer}>
 
-                        <View style={styles.deliveryOptionsContainer}>
+                                <HomeIcon/>
 
-                            <CustomRowRadioButton
-                                value={"I’ll pick it up myself"}
-                                selected={selectedDeliveryOption === "I’ll pick it up myself"}
-                                onSelect={handleDeliveryOptionSelect}
-                                iconComponent={WalkingIcon}
-                            />
+                                <View style={styles.textsContainer}>
+                                    <Text style={[styles.cardNumber, styles.adressText]}>Alexandra Smith</Text>
+                                    <Text style={[styles.cardNumber, styles.adressText]}>Cesu 31 k-2 5.st, SIA Chili</Text>
+                                    <Text style={[styles.cardNumber, styles.adressText]}>Riga</Text>
+                                    <Text style={[styles.cardNumber, styles.adressText]}>LV–1012</Text>
+                                    <Text style={[styles.cardNumber, styles.adressText]}>Latvia</Text>
 
-                            <CustomRowRadioButton
-                                value={"By courier"}
-                                selected={selectedDeliveryOption === "By courier"}
-                                onSelect={handleDeliveryOptionSelect}
-                                iconComponent={BikeIcon}
-                            />
+                                </View>
 
-                            <CustomRowRadioButton
-                                value={"By Drone"}
-                                selected={selectedDeliveryOption === "By Drone"}
-                                onSelect={handleDeliveryOptionSelect}
-                                iconComponent={DroneIcon}
-                            />
+                            </View>
 
                         </View>
 
                     </View>
 
+                    <View style={[styles.row,styles.deliveryOptionsRow]}>
+
+                        <View style={styles.rowHeader}>
+
+                            <Text style={styles.Title}>
+                                Delivery options
+                            </Text>
+
+                            <TouchableOpacity>
+                                <Text style={styles.changeButton}>CHANGE</Text>
+                            </TouchableOpacity>
+
+                        </View>
+
+                        <View style={styles.rowMain}>
+
+                            <View style={styles.deliveryOptionsContainer}>
+
+                                <CustomRowRadioButton
+                                    value={"I’ll pick it up myself"}
+                                    selected={selectedDeliveryOption === "I’ll pick it up myself"}
+                                    onSelect={handleDeliveryOptionSelect}
+                                    iconComponent={WalkingIcon}
+                                />
+
+                                <CustomRowRadioButton
+                                    value={"By courier"}
+                                    selected={selectedDeliveryOption === "By courier"}
+                                    onSelect={handleDeliveryOptionSelect}
+                                    iconComponent={BikeIcon}
+                                />
+
+                                <CustomRowRadioButton
+                                    value={"By Drone"}
+                                    selected={selectedDeliveryOption === "By Drone"}
+                                    onSelect={handleDeliveryOptionSelect}
+                                    iconComponent={DroneIcon}
+                                />
+
+                            </View>
+
+                        </View>
+
+                    </View>
+
+                    <View style={styles.rowHeader}>
+
+                        <Text style={styles.Title}>
+                            Non-contact-delivery
+                        </Text>
+
+                        <TouchableOpacity>
+                            <CustomRadioButton isChecked={isNonContactDelivery} onRadioButtonChange={handleNonContactDelivery}/>
+                        </TouchableOpacity>
+
+                    </View>
+
+
                 </View>
-
-                <View style={styles.rowHeader}>
-
-                    <Text style={styles.Title}>
-                        Non-contact-delivery
-                    </Text>
-
-                    <TouchableOpacity>
-                        <CustomRadioButton isChecked={isNonContactDelivery} onRadioButtonChange={handleNonContactDelivery}/>
-                    </TouchableOpacity>
-
-                </View>
-
 
             </View>
+        }>
+        </PrivateRoute>
 
-        </View>
+
     );
 };
 

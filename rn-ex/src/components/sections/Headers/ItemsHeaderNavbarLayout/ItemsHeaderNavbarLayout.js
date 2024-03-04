@@ -7,8 +7,6 @@ import CustomItemCard from "../../../../common/customs/CustomItemCard/CustomItem
 
 const ItemsHeaderNavbarLayout = ({main,title,backgroundImage,onClick}) => {
     return (
-
-
         <View style={styles.container}>
 
 
@@ -33,7 +31,6 @@ const ItemsHeaderNavbarLayout = ({main,title,backgroundImage,onClick}) => {
                 </View>
 
             </ScrollView>
-
         </View>
     );
 };

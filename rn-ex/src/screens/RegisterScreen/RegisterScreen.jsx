@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import styles from './styles';
-import {Pressable, Text, TextInput, View, KeyboardAvoidingView, Platform, Linking, Alert} from "react-native";
+import {Pressable, Text, TextInput, View, KeyboardAvoidingView, Platform} from "react-native";
 import AuthLayout from "../../common/layouts/AuthLayout/AuthLayout";
-
-// import {useNavigation} from "@react-navigation/native";
+import {useAuth} from "../../context/AuthContext";
+import {useNavigation} from "@react-navigation/native";
 
 const RegisterScreen = () => {
+    const auth = useAuth();
 
-    // const navigation = useNavigation();
-
-    // console.log('Navigation: ', navigation.getState());
+    const navigateTo = useNavigation();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -37,10 +36,15 @@ const RegisterScreen = () => {
         setConfirmPassword(text);
     };
 
+    const handleSubmit = async () => {
+        const response = await auth.register(name, email, password).then(r => console.log(r));
 
+        console.log(response);
+        navigateTo.navigate("Login");
+    }
 
     return (
-        <AuthLayout buttonText="SIGN UP">
+        <AuthLayout buttonText="SIGN UP" btnOnClick={handleSubmit}>
 
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -77,7 +81,9 @@ const RegisterScreen = () => {
 
                 <View style={{flexDirection: "row"}}>
                     <Text style={styles.text}>You already have an account? </Text>
-                    <Pressable>
+                    <Pressable onPress={()=> {
+                        navigateTo.navigate('Login');
+                    }}>
                         <Text style={[styles.text, styles.textBtn ]}>Sign In</Text>
                     </Pressable>
                 </View>

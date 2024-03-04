@@ -48,7 +48,7 @@ const Carousel = ({images}) => {
         return (
             <View>
                 <Image
-                    source={item.image}
+                    source={{uri:item.image}}
                     style={{ height: imageHeight, width: screenWidth,zIndex:-1 }}
                 />
             </View>

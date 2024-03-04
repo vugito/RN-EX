@@ -3,11 +3,11 @@ import Svg, {Path} from "react-native-svg";
 import {View, StyleSheet} from "react-native";
 
 const BoxIcon = (props) => {
-    const { width, height, color, containerStyle } = props;
+    const { width, height, color, containerstyle } = props;
 
     return (
 
-        <View style={[styles.iconContainer, containerStyle]}>
+        <View style={[styles.iconContainer, containerstyle]}>
             <Svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={width || 36}

@@ -2,9 +2,9 @@ import React from 'react';
 import {View, Image, Text, TouchableOpacity} from 'react-native';
 import styles from "./styles";
 
-const CustomItemCard = ({imageSource, productName, quantity,onclick}) => {
+const CustomItemCard = ({imageSource, productName, quantity,onClick}) => {
     return (
-        <TouchableOpacity onPress={onclick}>
+        <TouchableOpacity onPress={onClick}>
         <View style={styles.cardContainer}>
             <View style={styles.imageContainer}>
                 <Image source={{uri: imageSource}} style={styles.image} resizeMode="cover"/>
