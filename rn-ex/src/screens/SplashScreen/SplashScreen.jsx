@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, ImageBackground, Image} from "react-native";
 import styles from "./styles"
-import BoxIcon from "../../common/icons/BoxIcon/BoxIcon";
-import CustomButton from "../../common/customs/CustomButton/CustomButton";
+import BoxIcon from "../../components/icons/BoxIcon/BoxIcon";
+import CustomButton from "../../components/customs/CustomButton/CustomButton";
 import {useNavigation} from "@react-navigation/native";
 import PrivateRoute from "../../routing/PrivateRoute"
 

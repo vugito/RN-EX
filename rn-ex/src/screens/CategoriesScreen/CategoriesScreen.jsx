@@ -3,8 +3,8 @@ import ItemsHeaderNavbarLayout from "../../components/sections/Headers/ItemsHead
 import {useNavigation} from "@react-navigation/native";
 import PrivateRoute from "../../routing/PrivateRoute";
 import {useCommon} from "../../context/CommonContext";
-import CustomItemCard from "../../common/customs/CustomItemCard/CustomItemCard";
-import CustomRowItemCard from "../../common/customs/CustomRowItemCard/CustomRowItemCard";
+import CustomItemCard from "../../components/customs/CustomItemCard/CustomItemCard";
+import CustomRowItemCard from "../../components/customs/CustomRowItemCard/CustomRowItemCard";
 import {Text} from "react-native";
 
 const CategoriesScreen = () => {

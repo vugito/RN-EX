@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text, StyleSheet, Dimensions, Image, TouchableOpacity} from "react-native";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "../../../components/customs/CustomButton/CustomButton";
 import HeartIcon from "../../icons/HeartIcon/HeartIcon";
 import ShoppingCartIcon from "../../icons/ShoppingCartIcon/ShoppingCartIcon";
 

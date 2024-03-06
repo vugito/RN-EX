@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from "react-native";
 import styles from './styles';
 import HeaderNavBar from "../../components/sections/Headers/HeaderNavBar/HeaderNavBar";
-import CreditCardIcon from "../../common/icons/CreditCardIcon/CreditCardIcon";
-import HomeIcon from "../../common/icons/HomeIcon/HomeIcon";
-import CustomRowRadioButton from "../../common/customs/CustomRowRadioButton/CustomRowRadioButton";
-import DroneIcon from "../../common/icons/DroneIcon/DroneIcon";
-import WalkingIcon from "../../common/icons/WalkingIcon/WalkingIcon";
-import BikeIcon from "../../common/icons/BikeIcon/BikeIcon";
-import CustomRadioButton from "../../common/customs/CustomRadioButton/CustomRadioButton";
+import CreditCardIcon from "../../components/icons/CreditCardIcon/CreditCardIcon";
+import HomeIcon from "../../components/icons/HomeIcon/HomeIcon";
+import CustomRowRadioButton from "../../components/customs/CustomRowRadioButton/CustomRowRadioButton";
+import DroneIcon from "../../components/icons/DroneIcon/DroneIcon";
+import WalkingIcon from "../../components/icons/WalkingIcon/WalkingIcon";
+import BikeIcon from "../../components/icons/BikeIcon/BikeIcon";
+import CustomRadioButton from "../../components/customs/CustomRadioButton/CustomRadioButton";
 import PrivateRoute from "../../routing/PrivateRoute";
 
 const CheckoutScreen = () => {

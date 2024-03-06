@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from './styles';
 import {Pressable, Text, TextInput, View, KeyboardAvoidingView, Platform} from "react-native";
-import AuthLayout from "../../common/layouts/AuthLayout/AuthLayout";
+import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
 import {useAuth} from "../../context/AuthContext";
 import {useNavigation} from "@react-navigation/native";
 
@@ -64,16 +64,18 @@ const RegisterScreen = () => {
                         keyboardType='email-address'
                         caretHidden={false}
                         onChangeText={inputEmailHandler}
-                        placeholder='Enter your email id'/>
+                        placeholder='Enter your email'/>
                     <TextInput
                         style={styles.input}
                         value={password}
                         keyboardType='visible-password'
+                        secureTextEntry={true}
                         onChangeText={inputPasswordHandler}
                         placeholder='Enter Password'/>
                     <TextInput
                         style={styles.input}
                         value={confirmPassword}
+                        secureTextEntry={true}
                         keyboardType="visible-password"
                         onChangeText={inputConfirmPasswordHandler}
                         placeholder='Enter confirm Password'/>

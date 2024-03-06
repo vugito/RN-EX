@@ -1,27 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, ImageBackground, Image, TouchableOpacity} from "react-native";
+import React, {useEffect} from 'react';
+import {View, Text} from "react-native";
 import styles from './styles';
-import BoxIcon from "../../common/icons/BoxIcon/BoxIcon";
-import CustomButton from "../../common/customs/CustomButton/CustomButton";
+import CustomButton from "../../components/customs/CustomButton/CustomButton";
 import Carousel from "../../components/Carousel/Carousel"
-import HeartIcon from "../../common/icons/HeartIcon/HeartIcon";
-import ShoppingCartIconIsFocused from "../../common/icons/ShoppingCartIconIsFocused/ShoppingCartIconIsFocused";
-import ChevronLeftIcon from "../../common/icons/ChevronLeftIcon/ChevronLeftIcon";
+import HeartIcon from "../../components/icons/HeartIcon/HeartIcon";
 import {useNavigation} from "@react-navigation/native";
 import HeaderNavBar from "../../components/sections/Headers/HeaderNavBar/HeaderNavBar";
-import ShoppingCartIcon from "../../common/icons/ShoppingCartIcon/ShoppingCartIcon";
+import ShoppingCartIcon from "../../components/icons/ShoppingCartIcon/ShoppingCartIcon";
 import {useCommon} from "../../context/CommonContext";
 import PrivateRoute from "../../routing/PrivateRoute";
 import {useBasket} from "../../context/BasketContext";
 import {useFavourites} from "../../context/FavouriteContext";
 
 const ProductItemScreen = () => {
-
-    // const images = [
-    //     require("../../../assets/images/elvin.jpg"),
-    //     require("../../../assets/images/elvin.jpg"),
-    //     require("../../../assets/images/elvin.jpg"),
-    // ];
 
     const {
         selectedProductId,
@@ -54,11 +45,11 @@ const ProductItemScreen = () => {
     };
 
 
-    const AddProductToBasket=(product)=>{
+    const handleAddProductToBasket=(product)=>{
         addProductToBasket(product)
     }
 
-    const AddProductToFavourites=(product)=>{
+    const handleAddProductToFavourites=(product)=>{
         addProductToFavourites(product)
     }
 
@@ -109,7 +100,7 @@ const ProductItemScreen = () => {
                             buttonStyles={styles.heartButtonStyles}
                             iconShown={true}
                             icon={<HeartIcon color={styles.heartIcon.color}/>}
-                            onClick={()=>AddProductToFavourites(currentProduct)}
+                            onClick={()=>handleAddProductToFavourites(currentProduct)}
                         />
 
                         <CustomButton
@@ -119,7 +110,7 @@ const ProductItemScreen = () => {
                             textStyles={styles.addToCartButtonText}
                             buttonStyles={styles.addToCartButton}
                             icon={<ShoppingCartIcon color={styles.shoppingCardIcon.color}/>}
-                            onClick={()=>AddProductToBasket(currentProduct)}
+                            onClick={()=>handleAddProductToBasket(currentProduct)}
                         />
                     </View>
 

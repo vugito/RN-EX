@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {View, Text} from "react-native";
 import styles from './styles';
 import ItemsHeaderNavbarLayout from "../../components/sections/Headers/ItemsHeaderNavbarLayout/ItemsHeaderNavbarLayout";
-import CustomRowItemCard from "../../common/customs/CustomRowItemCard/CustomRowItemCard";
-import CustomChip from "../../common/customs/CustomChip/CustomChip"
+import CustomRowItemCard from "../../components/customs/CustomRowItemCard/CustomRowItemCard";
+import CustomChip from "../../components/customs/CustomChip/CustomChip"
 import {useNavigation} from "@react-navigation/native";
 import PrivateRoute from "../../routing/PrivateRoute";
 import {useCommon} from "../../context/CommonContext";
@@ -69,18 +69,6 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
 
 
 
-    // useEffect(() => {
-    //     const filterProducts = () => {
-    //         setFilteredProducts([]);
-    //         if (products && selectedCategoryTypes) {
-    //             const filteredProducts = products.filter(product => selectedCategoryTypes.includes(product.productType.id)
-    //             );
-    //             setFilteredProducts(filteredProducts);
-    //         }
-    //     };
-    //
-    //     filterProducts();
-    // }, [selectedCategoryTypes]);
 
     useEffect(() => {
         const filterProducts = () => {
@@ -101,11 +89,11 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
         filterProducts();
     }, [selectedCategoryTypes, searchQuery, products]);
 
-    const AddProductToBasket=(product)=>{
+    const handleAddProductToBasket=(product)=>{
         addProductToBasket(product)
     }
 
-    const AddProductToFavourites=(product)=>{
+    const handleAddProductToFavourites=(product)=>{
         addProductToFavourites(product)
     }
 
@@ -163,8 +151,8 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
                                 currency={item.currency}
                                 sellingType={item.sellingType}
                                 onClick={() => handleCardClick(item.id)}
-                                onClickAddToBasket={()=>AddProductToBasket(item)}
-                                onClickAddToFavourites={()=>AddProductToFavourites(item)}
+                                onClickAddToBasket={()=>handleAddProductToBasket(item)}
+                                onClickAddToFavourites={()=>handleAddProductToFavourites(item)}
                             />
                         ))
                     ) : (
@@ -178,8 +166,8 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
                                     currency={item.currency}
                                     sellingType={item.sellingType}
                                     onClick={() => handleCardClick(item.id)}
-                                    onClickAddToBasket={()=>AddProductToBasket(item)}
-                                    onClickAddToFavourites={()=>AddProductToFavourites(item)}
+                                    onClickAddToBasket={()=>handleAddProductToBasket(item)}
+                                    onClickAddToFavourites={()=>handleAddProductToFavourites(item)}
                                 />
                             ))
                         ) : (

@@ -9,10 +9,8 @@ import {
     Platform,
 } from "react-native";
 
-import {Image} from "expo-image";
-import AuthLayout from "../../common/layouts/AuthLayout/AuthLayout";
+import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
 import {useAuth} from "../../context/AuthContext";
-import {log} from "expo/build/devtools/logger";
 import {useNavigation} from "@react-navigation/native";
 
 const LoginScreen = () => {
@@ -62,12 +60,13 @@ const LoginScreen = () => {
                         style={styles.input}
                         value={password}
                         keyboardType='visible-password'
+                        secureTextEntry={true}
                         onChangeText={inputPasswordHandler}
                         placeholder='Enter your password'/>
                 </View>
 
                 <View style={{flexDirection: "row"}}>
-                    <Text style={styles.text}>Forgot password? </Text>
+                    <Text style={styles.text}>Forgot password?</Text>
                     <Pressable>
                         <Text style={[styles.text, styles.textBtn]}>Click</Text>
                     </Pressable>

@@ -26,9 +26,9 @@ export const BasketProvider = ({ children }) => {
     };
 
 
-    const FinishShopping =async (token) => {
+    const finishShopping =async (token) => {
         console.log("Basket Context token: ",token);
-        const response = await BasketService.FinishShopping(basket,token);
+        const response = await BasketService.finishShopping(basket,token);
         console.log("FINISH SHOPPING RESPONSE: ",response);
         if(response){
             setBasket([]);
@@ -40,7 +40,7 @@ export const BasketProvider = ({ children }) => {
     },[basket])
 
     return (
-        <BasketContext.Provider value={{ basket, addProductToBasket,removeProductFromBasket,FinishShopping }}>
+        <BasketContext.Provider value={{ basket, addProductToBasket,removeProductFromBasket,FinishShopping: finishShopping }}>
             {children}
         </BasketContext.Provider>
     );

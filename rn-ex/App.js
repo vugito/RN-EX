@@ -8,13 +8,13 @@ import {useEffect} from "react";
 
 export default function App() {
 
-    const {getUser}=useAuth();
+    // const {getUser}=useAuth();
 
-    useEffect(()=>{
-        async()=>{
-            getUser();
-        }
-    },[getUser])
+    // useEffect(()=>{
+    //     async()=>{
+    //         getUser();
+    //     }
+    // },[getUser])
 
 
     return (

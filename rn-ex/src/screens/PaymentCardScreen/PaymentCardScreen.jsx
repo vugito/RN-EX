@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Text, ImageBackground, Image, Dimensions} from "react-native";
+import {View, Text, ImageBackground, Image} from "react-native";
 import styles from './styles';
 import HeaderNavBar from "../../components/sections/Headers/HeaderNavBar/HeaderNavBar";
-import CustomButton from "../../common/customs/CustomButton/CustomButton";
-import CustomTextInput from "../../common/customs/CustomTextInput/CustomTextInput";
-import HeartIcon from "../../common/icons/HeartIcon/HeartIcon";
-import MasterCardIcon from "../../common/icons/MasterCardIcon/MasterCardIcon";
-import CardCVCIcon from "../../common/icons/CardCVCIcon/CardCVCIcon";
+import CustomButton from "../../components/customs/CustomButton/CustomButton";
+import CustomTextInput from "../../components/customs/CustomTextInput/CustomTextInput";
+import HeartIcon from "../../components/icons/HeartIcon/HeartIcon";
+import MasterCardIcon from "../../components/icons/MasterCardIcon/MasterCardIcon";
+import CardCVCIcon from "../../components/icons/CardCVCIcon/CardCVCIcon";
 const PaymentCardScreen = () => {
 
 

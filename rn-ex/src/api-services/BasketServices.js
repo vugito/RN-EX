@@ -2,9 +2,9 @@ export default class BasketServices {
     constructor() {
         this.baseUrl='https://avazdg.tech:7300/api'
     }
-    async FinishShopping(requestBody,token) {
+    async finishShopping(requestBody, token) {
         try {
-            console.log("requestBody: ",requestBody);
+            console.log("requestBody: ", JSON.stringify(requestBody));
             console.log("token: ",token);
             const response = await fetch(`${this.baseUrl}/Details/process-order`, {
                 method: 'POST',

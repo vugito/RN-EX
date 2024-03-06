@@ -17,9 +17,8 @@ export const AuthProvider = ({ children }) => {
                 password: password
             }
 
-            const response= await AuthService.Login(requestBody)
+            const response= await AuthService.login(requestBody)
 
-            // console.log(response)
 
             const data = await response.json();
 
@@ -48,7 +47,7 @@ export const AuthProvider = ({ children }) => {
                 "email":email,
                 "password":password
             }
-            const response= await AuthService.Register(requestBody)
+            const response= await AuthService.register(requestBody)
             const data = await response.json();
 
             if (response.ok) {

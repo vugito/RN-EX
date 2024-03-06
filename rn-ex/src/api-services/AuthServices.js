@@ -2,7 +2,7 @@ export default class AuthServices {
     constructor() {
         this.baseUrl='https://avazdg.tech:7300/api'
     }
-    async Login(requestBody) {
+    async login(requestBody) {
         console.log('Start Loggining')
         try {
             const response = await fetch(`${this.baseUrl}/Account/login`, {
@@ -25,7 +25,7 @@ export default class AuthServices {
         }
     }
 
-    async Register(requestBody) {
+    async register(requestBody) {
         try {
             const response = await fetch(`${this.baseUrl}/Account/register`, {
                 method: 'POST',

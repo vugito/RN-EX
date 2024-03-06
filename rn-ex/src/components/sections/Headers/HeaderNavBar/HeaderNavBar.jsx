@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, Pressable, Image, TouchableOpacity} from "react-native";
+import {View, Text, Image, TouchableOpacity} from "react-native";
 import styles from './styles';
-import ChevronLeftIcon from "../../../../common/icons/ChevronLeftIcon/ChevronLeftIcon";
+import ChevronLeftIcon from "../../../../components/icons/ChevronLeftIcon/ChevronLeftIcon";
 
 const HeaderNavBar = ({titleShown,containerStyle, title,backroundImage,onClick}) => {
     return (

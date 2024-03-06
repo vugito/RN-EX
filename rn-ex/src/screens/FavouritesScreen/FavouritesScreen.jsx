@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {View, Text} from "react-native";
 import styles from './styles';
 import ItemsHeaderNavbarLayout from "../../components/sections/Headers/ItemsHeaderNavbarLayout/ItemsHeaderNavbarLayout";
 import {useNavigation} from "@react-navigation/native";
 import PrivateRoute from "../../routing/PrivateRoute";
-import {useBasket} from "../../context/BasketContext";
-import CustomTemp from "../../common/customs/CustomTemp/CustomTemp";
+import CustomTemp from "../../components/customs/CustomTemp/CustomTemp";
 import {useFavourites} from "../../context/FavouriteContext";
 
 {/* added */}

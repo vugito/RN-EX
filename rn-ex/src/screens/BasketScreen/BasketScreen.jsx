@@ -5,8 +5,8 @@ import ItemsHeaderNavbarLayout from "../../components/sections/Headers/ItemsHead
 import {useNavigation} from "@react-navigation/native";
 import PrivateRoute from "../../routing/PrivateRoute";
 import {useBasket} from "../../context/BasketContext";
-import CustomTemp from "../../common/customs/CustomTemp/CustomTemp";
-import CustomButton from "../../common/customs/CustomButton/CustomButton";
+import CustomTemp from "../../components/customs/CustomTemp/CustomTemp";
+import CustomButton from "../../components/customs/CustomButton/CustomButton";
 import {useAuth} from "../../context/AuthContext";
 
 {/* added */}

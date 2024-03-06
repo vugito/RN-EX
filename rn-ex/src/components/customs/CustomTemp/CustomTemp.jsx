@@ -3,7 +3,7 @@ import {View, Text, Image, TouchableOpacity} from "react-native";
 import styles from './styles';
 import {useBasket} from "../../../context/BasketContext";
 import XIcon from "../../icons/XIcon/XIcon";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "../../../components/customs/CustomButton/CustomButton";
 
 const CustomTemp = ({productImg, productName, productPrice, currency, sellingType, onClick, onBtnClick}) => {
 
