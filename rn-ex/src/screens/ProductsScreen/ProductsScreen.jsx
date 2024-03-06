@@ -115,6 +115,7 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
     }
 
 
+
     return (
 
         <PrivateRoute children={
@@ -128,7 +129,7 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
                                     value={item.name}
                                     selected={selectedCategoryTypes.includes(item.id)}
                                     setSelected={() => handleCategoryTypeSelection(item.id)}
-                                    quantity={item.quantity}
+                                    quantity={item.productsQuantity}
                                 />
                             ))
                         ) : (
@@ -157,7 +158,7 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
                             <CustomRowItemCard
                                 key={item.id}
                                 productName={item.name}
-                                productImg={item.img}
+                                productImg={item.imageUrls[0].url}
                                 productPrice={item.price}
                                 currency={item.currency}
                                 sellingType={item.sellingType}
@@ -172,7 +173,7 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
                                 <CustomRowItemCard
                                     key={item.id}
                                     productName={item.name}
-                                    productImg={item.img}
+                                    productImg={item.imageUrls[0].url}
                                     productPrice={item.price}
                                     currency={item.currency}
                                     sellingType={item.sellingType}

@@ -11,7 +11,7 @@ const CustomTemp = ({productImg, productName, productPrice, currency, sellingTyp
         <TouchableOpacity onPress={onClick}>
             <View style={styles.cardContainer}>
                 <View style={styles.leftSubContainer}>
-                    <Image source={productImg} style={styles.image}/>
+                    <Image source={{uri:productImg}} style={styles.image}/>
                 </View>
 
                 <View style={styles.rightSubContainer}>

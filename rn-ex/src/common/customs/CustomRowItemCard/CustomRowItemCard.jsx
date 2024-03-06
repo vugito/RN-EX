@@ -21,7 +21,7 @@ const CustomRowItemCard = ({
             <View style={styles.cardContainer}>
                 <View style={styles.leftSubContainer}>
                     {/* fixed */}
-                    <Image source={{uri:productImg}} style={styles.image}/>
+                    <Image source={productImg} style={styles.image}/>
                     {/*{uri:productImg}*/}
                 </View>
 

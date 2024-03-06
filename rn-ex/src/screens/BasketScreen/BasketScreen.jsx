@@ -50,7 +50,7 @@ const BasketScreen = ({title= "Basket", backgroundImage}) => {
                                 <CustomTemp
                                     key={index}
                                     productName={item.name}
-                                    productImg={item.img}
+                                    productImg={item.imageUrls[0].url}
                                     productPrice={item.price}
                                     sellingType={item.sellingType}
                                     currency={item.currency}
@@ -64,7 +64,7 @@ const BasketScreen = ({title= "Basket", backgroundImage}) => {
 
                     <CustomButton
                         textShown={true}
-                        text={"Finish"}
+                        text={"FINISH HIM !!!"}
                         buttonStyles={styles.buttonStyles}
                         textStyles={styles.textStyles}
                         onClick={finishShopping}

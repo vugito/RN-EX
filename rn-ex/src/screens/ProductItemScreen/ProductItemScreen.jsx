@@ -87,7 +87,7 @@ const ProductItemScreen = () => {
                                 {currentProduct?.price}
                             </Text>
                             <Text style={styles.currencyAndSellingType}>
-                                {currentProduct?.price} / {currentProduct?.sellingType}
+                                {currentProduct?.currency} / {currentProduct?.sellingType}
                             </Text>
 
                         </View>
