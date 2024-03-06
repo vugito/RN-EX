@@ -15,7 +15,7 @@ export const CommonProvider = ({ children }) => {
 
     const [currentProduct,setCurrentProduct] = useState(null); // like static variables in c#
 
-    const [selectedCategoryId,setSelectedCategoryId]=useState(null);
+    const [selectedCategory,setSelectedCategory]=useState(null);
 
     const [selectedProductId,setSelectedProductId]=useState(null);
 
@@ -26,8 +26,6 @@ export const CommonProvider = ({ children }) => {
             setCategories(null);
 
             const response = await CommonDataService.getAllCategories();
-
-            console.log("GetAllCats: => ",response);
 
             if (response !== null || response !== 'undefined') {
                 setCategories(response);
@@ -45,11 +43,7 @@ export const CommonProvider = ({ children }) => {
 
             const response= await CommonDataService.getAllProductsByCategoryId(categoryId);
 
-            console.log("get All Products: ",response);
-
-            // const data = await response.json();
-
-            // console.log(data)
+            console.log("get All ProductsBy Category Id: ", JSON.stringify(response.products));
 
             if (response !==null || response !== 'undefined') {
                 setProducts(response.products);
@@ -66,8 +60,6 @@ export const CommonProvider = ({ children }) => {
         try {
             const response = await CommonDataService.getProductById(productId);
 
-            console.log("GetProdDetails: => ",response);
-
             if (response !== null || response !== 'undefined') {
                 setCurrentProduct(response);
             } else {
@@ -83,8 +75,6 @@ export const CommonProvider = ({ children }) => {
         try {
             const response= await CommonDataService.getAllTypesByCategoryId(categoryId);
 
-            console.log("getAllTypesByCategoryId: ",response);
-
             if (response !== null && response !== undefined) {
                 setCurrentCategoryTypes(response);
             } else {
@@ -97,14 +87,8 @@ export const CommonProvider = ({ children }) => {
         }
     }
 
-    useEffect(() => {
-        console.log(currentCategoryTypes);
-    }, [currentCategoryTypes]);
-
-
     return (
-        // fixed {register}
-        <CommonContext.Provider value={{ categories, products, currentProduct, getAllCategories, getAllProductsByCategoryId, getProductDetailsById,selectedCategoryId,setSelectedCategoryId,selectedProductId,setSelectedProductId,getAllTypesByCategoryId,currentCategoryTypes }}>
+        <CommonContext.Provider value={{ categories, products, currentProduct, getAllCategories, getAllProductsByCategoryId, getProductDetailsById,selectedCategory,setSelectedCategory,selectedProductId,setSelectedProductId,getAllTypesByCategoryId,currentCategoryTypes }}>
             {children}
         </CommonContext.Provider>
     );

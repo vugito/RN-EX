@@ -13,6 +13,7 @@ export const BasketProvider = ({ children }) => {
     const [basket, setBasket] = useState([]);
 
     const addProductToBasket = (productToAdd) => {
+        console.log("productToAdd: ",JSON.stringify(productToAdd));
         const newBasket = [...basket, productToAdd];
         setBasket(newBasket);
     };
@@ -27,16 +28,15 @@ export const BasketProvider = ({ children }) => {
 
 
     const finishShopping =async (token) => {
-        console.log("Basket Context token: ",token);
-        const response = await BasketService.finishShopping(basket,token);
-        console.log("FINISH SHOPPING RESPONSE: ",response);
+        const basketIds=basket.map(x=>x.id);
+        const response = await BasketService.finishShopping(basketIds,token);
         if(response){
             setBasket([]);
         }
     }
 
     useEffect(()=>{
-        console.log(basket);
+        console.log(JSON.stringify(basket));
     },[basket])
 
     return (

@@ -7,8 +7,6 @@ import PrivateRoute from "../../routing/PrivateRoute";
 import CustomTemp from "../../components/customs/CustomTemp/CustomTemp";
 import {useFavourites} from "../../context/FavouriteContext";
 
-{/* added */}
-
 const FavouritesScreen = ({title= "Favourites", backgroundImage}) => {
 
     const {
@@ -32,7 +30,7 @@ const FavouritesScreen = ({title= "Favourites", backgroundImage}) => {
                                 <CustomTemp
                                     key={index}
                                     productName={item.name}
-                                    productImg={item.imageUrls[0].url}
+                                    productImg={item.img}
                                     productPrice={item.price}
                                     sellingType={item.sellingType}
                                     currency={item.currency}

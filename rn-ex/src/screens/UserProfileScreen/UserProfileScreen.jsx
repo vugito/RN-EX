@@ -15,7 +15,7 @@ const UserProfileScreen = () => {
 
     const navigation = useNavigation();
 
-    const handleOrderNow = () => {
+    const handleFavourites = () => {
         navigation.navigate('Favourite', { screen: 'FavouriteScreen' });
     };
 
@@ -39,26 +39,18 @@ const UserProfileScreen = () => {
 
                     <View style={styles.bottomContainer}>
 
-                        {/*<View style={styles.iconContainer}>*/}
-                        {/*    <BoxIcon containerstyle={styles.icon}/>*/}
-                        {/*</View>*/}
+
 
 
                         <View style={styles.titleContainer}>
-                            {/* Name */}
                             <Text style={styles.title}>{user?.name}</Text>
                         </View>
 
                         <View style={styles.titleContainer}>
-                            {/* Email - could add responsive */}
                             <Text style={[styles.title, {fontSize: 28}]}>{user?.email}</Text>
                         </View>
 
 
-                        {/*<View style={styles.titleContainer}>*/}
-                        {/*    /!* id *!/*/}
-                        {/*    <Text style={styles.title}>{user?.id}</Text>*/}
-                        {/*</View>*/}
 
 
                         <View style={styles.descriptionContainer}>
@@ -68,9 +60,9 @@ const UserProfileScreen = () => {
                         </View>
 
                         <View style={styles.buttonsContainer}>
-                            <CustomButton textShown={true} onClick={handleOrderNow}  buttonStyles={styles.orderNowButton} text="History"
+                            <CustomButton textShown={true} onClick={handleFavourites}  buttonStyles={styles.orderNowButton} text="History"
                                           iconShown={false} textStyles={styles.orderNowButtonText}/>
-                            <CustomButton textShown={true} onClick={handleOrderNow}  buttonStyles={styles.orderNowButton} text="Favourites"
+                            <CustomButton textShown={true} onClick={handleFavourites}  buttonStyles={styles.orderNowButton} text="Favourites"
                                           iconShown={false} textStyles={styles.orderNowButtonText}/>
 
                         </View>

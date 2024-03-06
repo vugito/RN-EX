@@ -9,7 +9,6 @@ import CustomTemp from "../../components/customs/CustomTemp/CustomTemp";
 import CustomButton from "../../components/customs/CustomButton/CustomButton";
 import {useAuth} from "../../context/AuthContext";
 
-{/* added */}
 
 const BasketScreen = ({title= "Basket", backgroundImage}) => {
 
@@ -54,7 +53,7 @@ const BasketScreen = ({title= "Basket", backgroundImage}) => {
                                     productPrice={item.price}
                                     sellingType={item.sellingType}
                                     currency={item.currency}
-                                    onBtnClick={()=>removeProductFromBasket(item.id)}
+                                    onBtnClick={()=>RemoveFromBasket(item.id)}
                                 />
                             ))
                         ) : (

@@ -4,13 +4,12 @@ import {useNavigation} from "@react-navigation/native";
 import PrivateRoute from "../../routing/PrivateRoute";
 import {useCommon} from "../../context/CommonContext";
 import CustomItemCard from "../../components/customs/CustomItemCard/CustomItemCard";
-import CustomRowItemCard from "../../components/customs/CustomRowItemCard/CustomRowItemCard";
 import {Text} from "react-native";
 
 const CategoriesScreen = () => {
 
     const {
-        setSelectedCategoryId,
+        setSelectedCategory,
         categories,
         getAllCategories,
     } = useCommon();
@@ -22,8 +21,8 @@ const CategoriesScreen = () => {
 
     const navigation = useNavigation();
 
-    const handleCardClick = (id) => {
-        setSelectedCategoryId(id);
+    const handleCardClick = (selectedCategory) => {
+        setSelectedCategory(selectedCategory);
         navigation.navigate('Home', {screen: 'ProductsScreen'});
     };
 
@@ -75,15 +74,13 @@ const CategoriesScreen = () => {
                 onClick={handleBackClick}
                 main={
 
-                // (categories && categories.map((item) => (
-                //     <CustomItemCard onClick={ ()=>handleCardClick(item.id)} key={item?.id} imageSource={item?.imageUrl} productName={item?.name} quantity={item?.productsQuantity}/>
-                // )))
+
 
 
                     (filteredCategories && filteredCategories.length > 0 ? (
                         filteredCategories.map((item) => (
                             <CustomItemCard
-                                onClick={() => handleCardClick(item.id)}
+                                onClick={() => handleCardClick(item)}
                                 key={item?.id}
                                 imageSource={item?.imageUrl}
                                 productName={item?.name}
@@ -93,7 +90,7 @@ const CategoriesScreen = () => {
                     ) : (categories && categories.length > 0 ? (
                             categories.map((item) => (
                                 <CustomItemCard
-                                    onClick={() => handleCardClick(item.id)}
+                                    onClick={() => handleCardClick(item)}
                                     key={item?.id}
                                     imageSource={item?.imageUrl}
                                     productName={item?.name}

@@ -10,16 +10,24 @@ import {useCommon} from "../../context/CommonContext";
 import {useBasket} from "../../context/BasketContext";
 import {useFavourites} from "../../context/FavouriteContext";
 
-const ProductsScreen = ({title= "Products", backgroundImage}) => {
+const ProductsScreen = ({title, backgroundImage}) => {
 
     const {
-        selectedCategoryId,
+        selectedCategory,
         setSelectedProductId,
         products,
         getAllProductsByCategoryId,
         currentCategoryTypes,
         getAllTypesByCategoryId
     } = useCommon();
+
+    const screenTitle = selectedCategory.name;
+
+    if (!title) {
+        console.log(selectedCategory)
+        title = screenTitle;
+    }
+
 
     const{addProductToBasket}=useBasket();
 
@@ -56,16 +64,16 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
 
     useEffect(() => {
         const GetAllProducts=async ()=>{
-            const response = await getAllProductsByCategoryId(selectedCategoryId);
+            const response = await getAllProductsByCategoryId(selectedCategory.id);
         }
 
         const GetAllTypes=async ()=>{
-            const responseTypes = await getAllTypesByCategoryId(selectedCategoryId);
+            const responseTypes = await getAllTypesByCategoryId(selectedCategory.id);
         }
 
         GetAllTypes();
         GetAllProducts();
-    }, [selectedCategoryId]);
+    }, [selectedCategory]);
 
 
 
@@ -90,6 +98,7 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
     }, [selectedCategoryTypes, searchQuery, products]);
 
     const handleAddProductToBasket=(product)=>{
+        console.log("product: ",JSON.stringify(product));
         addProductToBasket(product)
     }
 
@@ -126,20 +135,6 @@ const ProductsScreen = ({title= "Products", backgroundImage}) => {
                     </View>
 
 
-
-                    {/*<CustomRowItemCard*/}
-                    {/*    productName="Apple"*/}
-                    {/*    productImg={require("../../../assets/images/elvin.jpg")}*/}
-                    {/*    productPrice="3.50"*/}
-                    {/*    currency="$"*/}
-                    {/*    sellingType="kg" onClick={handleCardClick}*/}
-                    {/*/>*/}
-
-
-                    {/*(products && products.map((item) => (*/}
-                    {/*    <CustomRowItemCard key={item.id} productName={item.name} productImg={item.img} productPrice={item.price} currency={item.currency} sellingType={item.sellingType} onClick={()=>{*/}
-                    {/*        console.log(item.name)}}/>*/}
-                    {/*)))*/}
 
                     {filteredProducts.length > 0 ? (
                         filteredProducts?.map((item) => (
